@@ -38,7 +38,11 @@ while(running):
     def login():
         username = str(input("Please enter a username: "))
         password = str(input("Please enter a password: "))
-        check_credentials(username, password)
+        valid = is_valid_credentials(username, password)
+        if not valid:
+            print("Password or username is incorrect.")
+        else:
+            print("Login Successful!")
 
     def is_valid_credentials(username, password):
         exists = user_exists(username)
@@ -50,10 +54,8 @@ while(running):
             for row in cur.execute('SELECT * FROM users WHERE username=?', (username,)):
                 if row[0] == username:
                     if row[1] == passwordHash:
-                        print("Login Successful")
                         return True
                     else:
-                        print("Incorrect password")
                         return False
         
 
