@@ -24,10 +24,10 @@ while(running):
     if selection == 0:
         break
     def register():
-        userName = str(input("Please enter a username to register with: ")) 
+        userName = enter_username()
         exists = user_exists(userName)
         if not exists:
-            passWord = str(input("Please enter a password: "))
+            passWord = enter_password()
             passwordHash = hash_text(passWord)
             credentials = (userName, passwordHash)
             cur.execute('INSERT INTO users VALUES (?,?)', credentials)
@@ -36,8 +36,8 @@ while(running):
             print("That username is already taken")
 
     def login():
-        username = str(input("Please enter a username: "))
-        password = str(input("Please enter a password: "))
+        username = enter_username()
+        password = enter_password()
         valid = is_valid_credentials(username, password)
         if not valid:
             print("Password or username is incorrect.")
@@ -58,7 +58,16 @@ while(running):
                     else:
                         return False
         
+    def enter_username():
+        #Change the following line to get the username input from the GUI section
+        username = str(input("Please enter a username: "))
+        return username
 
+    def enter_password():
+        #Change the following line to get the username input from the GUI section
+        password = str(input("Please enter a password: "))
+        return password
+    
     def user_exists(username):
         cur.execute('SELECT * FROM users WHERE username=?', (username,))
         exists = cur.fetchall()
