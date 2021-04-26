@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+
+<h4>
+    This is your base profile, more advanced features will be available after you create your profile.
+</h4>
+
+    <form action ="/users/baseProfile" method ="POST">
+        <div>
+            <label for="firstName"> first name</label>
+            <input
+                type="firstName"
+                name="firstName"
+                placeholder="Enter First Name"
+                vale="<%= typeof firstName != 'undefined' ? firstName: ''%>"
+                />
+        </div>
+    </form>
+
+
+</head>
+<body>
+
+</body>
+</html>
