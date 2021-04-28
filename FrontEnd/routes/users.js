@@ -29,7 +29,15 @@ router.get('/contactUs',(req, res)=>{
 router.get('/baseProfile',(req, res)=>{
 	res.render('baseProfile')
 })
-
+router.get('/jobSearch',(req, res)=>{
+	res.render('jobSearch')
+})
+router.get('/applications',(req, res)=>{
+	res.render('applications')
+})
+router.get('/settings',(req, res)=>{
+	res.render('settings')
+})
 
 
 
@@ -51,7 +59,8 @@ router.post('/help', (req,res)=>{
 router.post('/faq', (req,res)=>{
 })
 
-
+router.post('/baseProfile', (req,res)=>{
+})
 
 
 

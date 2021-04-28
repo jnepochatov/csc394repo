@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+var multer = require('multer');
+
 //login page
 
 router.get('/', (req, res)=>{
@@ -32,5 +34,16 @@ router.get('/contactUs',(req,res)=>{
 router.get('/baseProfile',(req,res)=>{
 	res.render('baseProfile')
 })
+router.get('/jobSearch',(req,res)=>{
+	res.render('jobSearch')
+})
+router.get('/applications',(req,res)=>{
+	res.render('applications')
+})
+router.get('/settings',(req,res)=>{
+	res.render('settings')
+})
 //to use router instance in other files
 module.exports = router
+
+

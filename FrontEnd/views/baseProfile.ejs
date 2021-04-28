@@ -9,15 +9,114 @@
 </h4>
 
     <form action ="/users/baseProfile" method ="POST">
+
+
+
+
+
+
+<br>
         <div>
-            <label for="firstName"> first name</label>
+            <label for="firstName"> First Name</label>
             <input
                 type="firstName"
                 name="firstName"
                 placeholder="Enter First Name"
-                vale="<%= typeof firstName != 'undefined' ? firstName: ''%>"
+                value="<%= typeof firstName != 'undefined' ? firstName: ''%>"
                 />
+
+            <label for="lastName"> Last Name</label>
+            <input
+                type ="lastName"
+                name ="lastName"
+                placeholder="Enter Last Name"
+                value="<%= typeof lastName != 'undefined' ? lastName: ''%>"
+                />
+            <br>
+            <br>
+            <label>Education:</label>
+            <br>
+            <br>
+
+            <label for="school"> School:  </label>
+            <input
+                type ="school"
+                name="school"
+                placeholder=""
+                value="<%= typeof school != 'undefined' ? school: '' %>"
+                />
+
+            <label for="degree"> Degree:  </label>
+            <input
+                    type ="degree"
+                    name="degree"
+                    placeholder=""
+                    value="<%= typeof degree != 'undefined' ? degree: '' %>"
+            />
+            <br>
+            <label for="type"> Type:  </label>
+            <select name="type" id="type">
+                <option value="college">College</option>
+                <option value="vocational">Vocational</option>
+
+            </select>
+
+            <br>
+
+            <br>
+
+            <label for="graduationYear"> Graduation Year:  </label>
+            <input
+                    type ="graduationYear"
+                    name="graduationYear"
+                    placeholder=""
+                    value="<%= typeof graduationYear != 'undefined' ? graduationYear: '' %>"
+            />
+
+            <br>
+            <br>
+            <label>Skills: </label>
+
+
         </div>
+
+
+        <input type="file" name="filetoupload">
+        <input type="submit" value="Upload">
+
+
+        <!-- nmp install formidable to use this
+
+
+        var http = require('http');
+        var formidable = require('formidable');
+        var fs = require('fs');
+
+        http.createServer(function (req, res) {
+        if (req.url == '/fileupload') {
+        var form = new formidable.IncomingForm();
+        form.parse(req, function (err, fields, files) {
+        var oldpath = files.filetoupload.path;
+        var newpath = 'C:/Users/Your Name/' + files.filetoupload.name;
+        fs.rename(oldpath, newpath, function (err) {
+        if (err) throw err;
+        res.write('File uploaded and moved!');
+        res.end();
+        });
+        });
+        } else {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.write(' action="fileupload" method="post" enctype="multipart/form-data">');
+            res.write('<input type="file" name="filetoupload"><br>');
+            res.write('<input type="submit">');
+            res.write('>');
+        return res.end();
+        }
+        }).listen(8080);
+        -->
+
+
+
     </form>
 
 
