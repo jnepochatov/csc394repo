@@ -14,8 +14,7 @@ app.use(expressEjsLayout);
 app.use(express.urlencoded({extended : false}));
 
 //routes
-// app.use('/', require('../../../../Desktop/frontend/routes'));
-// app.use('/users',require('../../../../Desktop/frontend/routes/users'));
+//change to your own path
 app.use('/', require('../../../../Documents/GitHub/csc394repo/FrontEnd/routes'));
 app.use('/users',require('../../../../Documents/GitHub/csc394repo/FrontEnd/routes/users'));
 

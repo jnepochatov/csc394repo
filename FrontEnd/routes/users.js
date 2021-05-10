@@ -38,7 +38,9 @@ router.get('/applications',(req, res)=>{
 router.get('/settings',(req, res)=>{
 	res.render('settings')
 })
-
+router.get('/testing',(req, res)=>{
+	res.render('testing')
+})
 
 
 
@@ -61,7 +63,8 @@ router.post('/faq', (req,res)=>{
 
 router.post('/baseProfile', (req,res)=>{
 })
-
+router.post('/testing', (req,res)=>{
+})
 
 
 
@@ -85,6 +88,8 @@ router.get('/aboutUs', (req,res)=>{
 router.get('/help', (req,res)=>{
 })
 router.get('/baseProfile', (req,res)=>{
+})
+router.get('/testing', (req,res)=>{
 })
 
 module.exports = router;

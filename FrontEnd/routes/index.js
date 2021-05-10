@@ -43,6 +43,9 @@ router.get('/applications',(req,res)=>{
 router.get('/settings',(req,res)=>{
 	res.render('settings')
 })
+router.get('/testing',(req,res)=>{
+	res.render('testing')
+})
 //to use router instance in other files
 module.exports = router
 
