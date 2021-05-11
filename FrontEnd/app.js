@@ -13,6 +13,7 @@ app.use(expressEjsLayout);
 //bodyparser
 app.use(express.urlencoded({extended : false}));
 
+app.use(express.static(__dirname + '/public')); //needed to see the external stylesheets
 //routes
 //change to your own path
 app.use('/', require('../../../../Documents/GitHub/csc394repo/FrontEnd/routes'));
