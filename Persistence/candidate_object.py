@@ -38,6 +38,6 @@ def create_candidate(candidate):
     table = dbs.get_candidate_db()
     table.insert_one(candidate_data)
 
-dbs = Databases("db_access")
-person = CandidateObject("rick123", "password123", "rick@email.com", "Rick Rickerson", "7737778888", "Bob", ["Java", "c++"], ["Fast learner"], ["Hard working"], ["Job1"])
+#dbs = Databases("db_access")
+#person = CandidateObject("rick123", "password123", "rick@email.com", "Rick Rickerson", "7737778888", "Bob", ["Java", "c++"], ["Fast learner"], ["Hard working"], ["Job1"])
 
