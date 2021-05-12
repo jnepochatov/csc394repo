@@ -3,7 +3,7 @@
 function addRow() {
 
     var myName = document.getElementById("name");
-    var age = document.getElementById("age");
+   // var age = document.getElementById("age");
     var table = document.getElementById("myTableData");
 
     var rowCount = table.rows.length;
@@ -11,7 +11,7 @@ function addRow() {
 
     row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
     row.insertCell(1).innerHTML= myName.value;
-    row.insertCell(2).innerHTML= age.value;
+   // row.insertCell(2).innerHTML= age.value;
 
 }
 
