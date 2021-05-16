@@ -20,23 +20,23 @@ class CandidateObject:
 
 
 
-def create_candidate(candidate):
+    def create_candidate(candidate):
 
-    candidate_data = {
-            '_id': candidate.objectId,
-            'password': candidate.password,
-            'userName': candidate.username,
-            'email': candidate.email,
-            'phoneNum': candidate.phoneNum,
-            'references': candidate.references,
-            'tech_skills': candidate.tech_skills,
-            'business_skills': candidate.business_skills,
-            'attitude': candidate.attitude,
-            'bestMatch': candidate.bestMatch,
-            'name': candidate.name
-        }
-    table = dbs.get_candidate_db()
-    table.insert_one(candidate_data)
+        candidate_data = {
+                '_id': candidate.objectId,
+                'password': candidate.password,
+                'userName': candidate.username,
+                'email': candidate.email,
+                'phoneNum': candidate.phoneNum,
+                'references': candidate.references,
+                'tech_skills': candidate.tech_skills,
+                'business_skills': candidate.business_skills,
+                'attitude': candidate.attitude,
+                'bestMatch': candidate.bestMatch,
+                'name': candidate.name
+            }
+        table = dbs.get_candidate_db()
+        table.insert_one(candidate_data)
 
 #dbs = Databases("db_access")
 #person = CandidateObject("rick123", "password123", "rick@email.com", "Rick Rickerson", "7737778888", "Bob", ["Java", "c++"], ["Fast learner"], ["Hard working"], ["Job1"])
