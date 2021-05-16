@@ -1,8 +1,10 @@
-import candidate_persistence as cd, company_persistence as cp, job_persistence as jb
+import candidate_persistence as cd
+import company_persistence as cp
+import job_persistence as jb
 
 def find_matches(candidate_id, job_id):
-    candidate = cd.candidate(candidate_id)
-    job       = jb.job(job_id)
+    candidate = cd.Candidate(candidate_id)
+    job       = jb.Job(job_id)
     matches   = job.get_matches()
     tech_count, business_count, attitude_count = 0, 0, 0
 
@@ -27,7 +29,7 @@ def find_matches(candidate_id, job_id):
             min_score = matches[-1][1]
             #if score is lower than current candidate, replace in matches and sort
             if total_score > min_score:
-                matches.del(-1)
+                del matches[-1]
                 matches.append({candidate.get_username() : total_score})
         #sort matches
         #update best matches in DB
