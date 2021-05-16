@@ -63,28 +63,17 @@ class Candidate(data_retrieve):
     def create(self, username, password, email, name, phoneNum, references,
                  tech_skills, business_skills, attitude, bestMatch):
 
-        self.username = username
-        self.password = password
-        self.email = email
-        self.name = name
-        self.phoneNum = phoneNum
-        self.references = business_skills
-        self.tech_skills = tech_skills
-        self.business_skills = business_skills
-        self.attitude = attitude
-        self.bestMatch = bestMatch
-
         candidate_data = {
-            'password': self.password,
-            'userName': self.username,
-            'email': self.email,
-            'phoneNum': self.phoneNum,
-            'references': self.references,
-            'tech_skills': self.tech_skills,
-            'business_skills': self.business_skills,
-            'attitude': self.attitude,
-            'bestMatch': self.bestMatch,
-            'name': self.name
+            'password': password,
+            'userName': username,
+            'email': email,
+            'phoneNum': phoneNum,
+            'references': references,
+            'tech_skills': tech_skills,
+            'business_skills': business_skills,
+            'attitude': attitude,
+            'bestMatch': bestMatch,
+            'name': name
         }
         self.db.insert_one(candidate_data)
 
