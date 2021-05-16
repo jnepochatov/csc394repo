@@ -1,4 +1,4 @@
-from databases import Databases
+from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 class CompanyObject:
@@ -10,22 +10,23 @@ class CompanyObject:
         self.userName = userName
         self.password = password
         self.job_list = job_list
+        self.db = MongoClient("mongodb+srv://Mblanca4:Team2SpringQuarter@team2.14wgw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").myFirstDatabase.Company
+
     def addJob(self, jobID):
         self.job_list.append(jobID)
         
 
-    def create_company(company):
+    def create(self):
         
         company_data = {
-                'companyName': company.companyName,
-                'email': company.email,
-                'phoneNum': company.phoneNum,
-                'userName': company.userName,
-                'password': company.password,
-                'job_list': company.job_list,
+                'companyName': self.companyName,
+                'email': self.email,
+                'phoneNum': self.phoneNum,
+                'userName': self.userName,
+                'password': self.password,
+                'job_list': self.job_list,
             }
-        table = dbs.get_company_db()
-        table.insert_one(company_data)
 
-dbs = Databases("mongodb+srv://Mblanca4:Team2SpringQuarter@team2.14wgw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        self.db.insert_one(company_data)
+
 company = CompanyObject("Vega Corporation", "Vega@email.com", "7735674321", "vega123", "password123", ["job1", "job2"])

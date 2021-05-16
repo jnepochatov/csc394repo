@@ -1,5 +1,5 @@
-from databases import Databases
 from bson.objectid import ObjectId
+from pymongo import MongoClient
 
 class CandidateObject:
     def __init__(self, username, password, email, name, phoneNum, references,
@@ -15,29 +15,25 @@ class CandidateObject:
         self.business_skills = business_skills
         self.attitude = attitude
         self.bestMatch = bestMatch
-        
+        self.db = MongoClient("mongodb+srv://Mblanca4:Team2SpringQuarter@team2.14wgw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").myFirstDatabase.Candidate
 
 
-
-
-    def create_candidate(candidate):
+    def create_candidate(self):
 
         candidate_data = {
-                '_id': candidate.objectId,
-                'password': candidate.password,
-                'userName': candidate.username,
-                'email': candidate.email,
-                'phoneNum': candidate.phoneNum,
-                'references': candidate.references,
-                'tech_skills': candidate.tech_skills,
-                'business_skills': candidate.business_skills,
-                'attitude': candidate.attitude,
-                'bestMatch': candidate.bestMatch,
-                'name': candidate.name
+                '_id': self.objectId,
+                'password': self.password,
+                'userName': self.username,
+                'email': self.email,
+                'phoneNum': self.phoneNum,
+                'references': self.references,
+                'tech_skills': self.tech_skills,
+                'business_skills': self.business_skills,
+                'attitude': self.attitude,
+                'bestMatch': self.bestMatch,
+                'name': self.name
             }
-        table = dbs.get_candidate_db()
-        table.insert_one(candidate_data)
+        self.db.insert_one(candidate_data)
 
-#dbs = Databases("db_access")
-#person = CandidateObject("rick123", "password123", "rick@email.com", "Rick Rickerson", "7737778888", "Bob", ["Java", "c++"], ["Fast learner"], ["Hard working"], ["Job1"])
+person = CandidateObject("rick123", "password123", "rick@email.com", "Rick Rickerson", "7737778888", "Bob", ["Java", "c++"], ["Fast learner"], ["Hard working"], ["Job1"])
 
