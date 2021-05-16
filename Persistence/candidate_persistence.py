@@ -3,28 +3,17 @@ from bson.objectid import ObjectId
 from databases import Databases
 
 class CandidatePersistence:
-    def __init__(self, candidate_db):
-        self.candidate_db = candidate_db
+    def __init__(self):
+        self.client = MongoClient(server_url)
+        self.candidate_db = self.client.myFirstDatabase.Candidate
+        self.username = ""
+        self.query = self.candidate_db.find()
 
-    def get_username(self, username):
-        query = self.candidate_db.find()
-        user = None
+    def close_connection(self):
+        self.client.close()
 
-        for names in query:
-            queried_username = names["userName"]
-            if queried_username == username:
-                user = queried_username
-
-        if user is None:
-            print("Could not find user in db")
-
-        return user
-
-    def get_all_users(self):
-        query = self.candidate_db.find()
-        for names in query:
-            print(names["userName"])
-        return
+    def get_username(self, user_name):
+        pass
     
     def get_email(self, username):
         pass
