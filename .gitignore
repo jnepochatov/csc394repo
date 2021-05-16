@@ -2,8 +2,14 @@
 __pycache__/
 *.py[cod]
 
+### IntelliJ IDEA ###
+.idea
+*.iml
+*.xml
+
 # Distribution / packaging
 .Python
+venv/
 env/
 build/
 dist/
