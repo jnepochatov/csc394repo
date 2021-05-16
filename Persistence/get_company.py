@@ -1,10 +1,13 @@
 from data_retrieve import data_retrieve
 
-class candidate(data_retrieve):
+class Company(data_retrieve):
     def __init__(self, _id):
         data_retrieve.__init__(self, _id)
         self._id = _id
         self.db  = self.client.myFirstDatabase.Company
+        
+    def get_company_db(self):
+        return self.db
 
     def get_username(self):
         var = self.open_connection("userName")

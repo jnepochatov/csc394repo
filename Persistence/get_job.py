@@ -1,10 +1,13 @@
 from data_retrieve import data_retrieve
 
-class candidate(data_retrieve):
+class Job(data_retrieve):
     def __init__(self, _id):
         data_retrieve.__init__(self, _id)
         self._id = _id
         self.db  = self.client.myFirstDatabase.job
+
+    def get_job_db(self):
+        return self.db
     
     def get_name(self):
         var = self.open_connection("jobName")
