@@ -8,13 +8,13 @@ class Candidate(data_retrieve):
 
     def get_candidate_db(self):
         return self.db
-    
+
     def get_username(self):
         var = self.open_connection("userName")
         self.user = var
         self.close_connection()
         return self.user
-    
+
     def get_email(self):
         var = self.open_connection("email")
         self.email = var
@@ -26,7 +26,7 @@ class Candidate(data_retrieve):
         self.phone = var
         self.close_connection()
         return self.phone
-    
+
     def get_references(self):
         var = self.open_connection("references")
         self.ref = var
@@ -60,7 +60,7 @@ class Candidate(data_retrieve):
         except:
             return "Might not have matches yet"
 
-c1 = candidate('6079f93c951c8b029023efe6')
+c1 = Candidate('6079f93c951c8b029023efe6')
 
 print(c1.get_tech())
 
