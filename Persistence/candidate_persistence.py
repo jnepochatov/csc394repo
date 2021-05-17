@@ -1,4 +1,6 @@
 from data_retrieve import data_retrieve
+from pymongo import MongoClient
+
 
 class Candidate(data_retrieve):
     def __init__(self, _id):
@@ -60,25 +62,41 @@ class Candidate(data_retrieve):
         except:
             return "Might not have matches yet"
 
-    def create(self, username, password, email, name, phoneNum, references,
+class CandidateObject:
+    def __init__(self, username, password, email, name, phoneNum, references,
                  tech_skills, business_skills, attitude, bestMatch):
+        self.username = username
+        self.password = password
+        self.email = email
+        self.name = name
+        self.phoneNum = phoneNum
+        self.references = business_skills
+        self.tech_skills = tech_skills
+        self.business_skills = business_skills
+        self.attitude = attitude
+        self.bestMatch = bestMatch
+        self.db = MongoClient("mongodb+srv://Mblanca4:Team2SpringQuarter@team2.14wgw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").myFirstDatabase.Candidate
+
+
+    def create(self):
 
         candidate_data = {
-            'password': password,
-            'userName': username,
-            'email': email,
-            'phoneNum': phoneNum,
-            'references': references,
-            'tech_skills': tech_skills,
-            'business_skills': business_skills,
-            'attitude': attitude,
-            'bestMatch': bestMatch,
-            'name': name
-        }
+                'password': self.password,
+                'userName': self.username,
+                'email': self.email,
+                'phoneNum': self.phoneNum,
+                'references': self.references,
+                'tech_skills': self.tech_skills,
+                'business_skills': self.business_skills,
+                'attitude': self.attitude,
+                'bestMatch': self.bestMatch,
+                'name': self.name
+            }
         self.db.insert_one(candidate_data)
 
 c1 = Candidate('6079f93c951c8b029023efe6')
-#c1.create("TT123", "password123", "Tetris@email.com", "Tetris Tetromino", "7737778888", "Puyo", ["Java", "c++"], ["Fast learner"], ["Hard working"], ["Job1"])
+candidate = CandidateObject("TT123", "password123", "Tetris@email.com", "Tetris Tetromino", "7737778888", "Puyo", ["Java", "c++"], ["Fast learner"], ["Hard working"], ["Job1"])
+candidate.create()
 
 print(c1.get_tech())
 
