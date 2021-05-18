@@ -20,7 +20,7 @@ def main():
     # Used the while loop to make it easier to test
     # Feel free to remove it and switcher section at the bottom
 
-    while(running):
+    while running:
         selection = int(input('''
         Please enter a number to perform an action(0 to exit):
         (1): register
@@ -28,20 +28,21 @@ def main():
         '''))
         if selection == 0:
             break
+
         def register():
             reg_selection = int(input('''
             Please select the type of registration(or 0 to exit):
             (1): Candidate
             (2): Company
             '''))
-            while(1):
-                if(reg_selection == 0):
+            while 1:
+                if reg_selection == 0:
                     break
-                elif(reg_selection == 1):
+                elif reg_selection == 1:
                     candidateReg()
                     print("Registration Successful!")
                     break
-                elif(reg_selection == 1):
+                elif reg_selection == 1:
                     companyReg()
                     print("Registration Successful!")
                     break
@@ -49,21 +50,46 @@ def main():
                     print("Please select a valid option \"1\" or \"2\"")
                     register()
                     break
-
-
         def login():
+            log_sel = int(input('''
+            Please select the type of login(or 0 to exit):
+            (1): Candidate
+            (2): Company
+            '''))
+            while 1:
+                if log_sel == 0:
+                    break
+                elif log_sel == 1:
+                    candidate_login()
+                elif log_sel == 2:
+                    company_login()
+                else:
+                    print("Please select a valid option \"1\" or \"2\"")
+                    break
+
+
+
+        def candidate_login():
             username = str(input("Please enter your username: "))
             password = str(input("Please enter your password: "))
-            valid = is_valid_credentials(username.lower(), password)
+            valid = is_valid_candidate_credentials(username.lower(), password)
             if not valid:
                 print("Password or username is incorrect.")
             else:
                 print("Login Successful!")
 
-        def is_valid_credentials(username, password):
+        def company_login():
+            username = str(input("Please enter your username: "))
+            password = str(input("Please enter your password: "))
+            valid = is_valid_company_credentials(username.lower(), password)
+            if not valid:
+                print("Password or username is incorrect.")
+            else:
+                print("Login Successful!")
+
+        def is_valid_candidate_credentials(username, password):
             exists = candidate_exists(username)
             candidates = candidate_db.find()
-            companies = company_db.find()
             if not exists:
                 print("The username you have entered is not registered")
                 return False
@@ -71,6 +97,23 @@ def main():
                 #Check password section
                 passwordHash = hash_text(password)
                 for info in candidates:
+                    if info["userName"].lower() == username.lower():
+                        if info["password"] == passwordHash:
+                            return True
+                    else:
+                        continue
+            return False
+
+        def is_valid_company_credentials(username, password):
+            exists = company_exists(username)
+            companies = company_db.find()
+            if not exists:
+                print("The username you have entered is not registered")
+                return False
+            else:
+                # Check password section
+                passwordHash = hash_text(password)
+                for info in companies:
                     if info["userName"].lower() == username.lower():
                         if info["password"] == passwordHash:
                             return True
@@ -99,17 +142,17 @@ def main():
             while(1):
                 skill = str(input("Please enter a technical skill you have (or 0 to finish adding): "))
                 if(skill == "0"):
-                    break;
+                    break
                 tSkills.append(skill)
             while(1):
                 skill = str(input("Please enter a business skill you have (or 0 to finish adding): "))
                 if(skill == "0"):
-                    break;
+                    break
                 bSkills.append(skill)
             while(1):
                 skill = str(input("Please enter a attitude skill you have (or 0 to finish adding): "))
                 if(skill == "0"):
-                    break;
+                    break
                 aSkills.append(skill)
             candidate = CandidateObject(username.lower(), hashed_password, email, fullName, phoneNum, references, tSkills, bSkills, aSkills, [])
             candidate.create()
@@ -148,12 +191,6 @@ def main():
         def hash_text(password):
             hashedText = sha256(password.encode('utf-8')).hexdigest()
             return hashedText
-
-        #For debugging purposes
-        #
-        #def printDB():
-        #    for row in cur.execute('SELECT * FROM users'):
-        #        print(row)
 
         switcher = {
             1: register,
