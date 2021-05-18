@@ -1,10 +1,10 @@
-from data_retrieve import data_retrieve
+from data_retrieve import DataRetrieve
 from pymongo import MongoClient
 
 
-class Job(data_retrieve):
+class Job(DataRetrieve):
     def __init__(self, _id):
-        data_retrieve.__init__(self, _id)
+        DataRetrieve.__init__(self, _id)
         self._id = _id
         self.db  = self.client.myFirstDatabase.job
 

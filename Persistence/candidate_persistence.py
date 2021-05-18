@@ -1,10 +1,10 @@
-from data_retrieve import data_retrieve
+from Persistence.data_retrieve import DataRetrieve
 from pymongo import MongoClient
 
 
-class Candidate(data_retrieve):
+class Candidate(DataRetrieve):
     def __init__(self, _id):
-        data_retrieve.__init__(self, _id)
+        DataRetrieve.__init__(self, _id)
         self._id = _id
         self.db  = self.client.myFirstDatabase.Candidate
 
@@ -94,6 +94,7 @@ class CandidateObject:
             }
         self.db.insert_one(candidate_data)
 
+"""
 c1 = Candidate('6079f93c951c8b029023efe6')
 candidate = CandidateObject("TT123", "password123", "Tetris@email.com", "Tetris Tetromino", "7737778888", "Puyo", ["Java", "c++"], ["Fast learner"], ["Hard working"], ["Job1"])
 candidate.create()
@@ -105,3 +106,4 @@ print(c1.get_matches())
 print(c1.get_phone())
 
 print(c1.get_username())
+"""

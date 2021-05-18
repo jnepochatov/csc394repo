@@ -1,10 +1,10 @@
-from data_retrieve import data_retrieve
+from Persistence.data_retrieve import DataRetrieve
 from pymongo import MongoClient
 
 
-class Company(data_retrieve):
+class Company(DataRetrieve):
     def __init__(self, _id):
-        data_retrieve.__init__(self, _id)
+        DataRetrieve.__init__(self, _id)
         self._id = _id
         self.db  = self.client.myFirstDatabase.Company
         
@@ -49,7 +49,6 @@ class Company(data_retrieve):
             return self.best
         except:
             return "Might not have matches yet"
-
 
 class CompanyObject:
     def __init__(self, companyName, email, phoneNum, userName, password, job_list):
