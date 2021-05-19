@@ -16,6 +16,7 @@ def main():
     dbs = MongoClient("mongodb+srv://Mblanca4:Team2SpringQuarter@team2.14wgw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").myFirstDatabase
     candidate_db = dbs.Candidate
     company_db = dbs.Company
+    admin_db = dbs.admin
 
     # Used the while loop to make it easier to test
     # Feel free to remove it and switcher section at the bottom
@@ -55,6 +56,7 @@ def main():
             Please select the type of login(or 0 to exit):
             (1): Candidate
             (2): Company
+            (3): Admin
             '''))
             while 1:
                 if log_sel == 0:
@@ -65,11 +67,50 @@ def main():
                 elif log_sel == 2:
                     company_login()
                     break
+                elif log_sel == 3:
+                    admin_login()
+                    break
                 else:
                     print("Please select a valid option \"1\" or \"2\"")
                     break
 
+        def admin_login():
+            username = str(input("Please enter your username: "))
+            password = str(input("Please enter your password: "))
+            valid = is_valid_admin_credentials(username.lower(), password)
+            if not valid:
+                print("Password or username is incorrect.")
+            else:
+                print("Login Successful!")
+                admin_actions()
 
+        def admin_actions():
+            admin_sel = int(input('''
+                        Please select admin action (or 0 to exit):
+                        (1): Delete account
+                        '''))
+            while 1:
+                if admin_sel == 0:
+                    break
+                elif admin_sel == 1:
+                    del_account()
+                    break
+
+        def del_account():
+            username = str(input("Please enter the account username you wish to delete"))
+            can_exists = candidate_exists(username)
+            com_exists = company_exists(username)
+            if can_exists == False and com_exists == False:
+                print("The username you have entered does not exist")
+            elif can_exists:
+                candidate_db.delete_one({
+                    "userName": username
+                })
+            else:
+                company_db.delete_one({
+                    "userName": username
+                })
+            print("Deletion of " + username + "successful!")
 
         def candidate_login():
             username = str(input("Please enter your username: "))
@@ -88,6 +129,24 @@ def main():
                 print("Password or username is incorrect.")
             else:
                 print("Login Successful!")
+
+        def is_valid_admin_credentials(username, password):
+            exists = admin_exists(username)
+            admins = admin_db.find()
+            if not exists:
+                print("The admin username you have entered is not registered")
+                return False
+            else:
+                #Check password section
+                #passwordHash = hash_text(password)
+                for info in admins:
+                    if info["userName"].lower() == username.lower():
+                        if info["password"] == password:
+                            return True
+                    else:
+                        continue
+            return False
+
 
         def is_valid_candidate_credentials(username, password):
             exists = candidate_exists(username)
@@ -188,6 +247,12 @@ def main():
                     return True
             return False
 
+        def admin_exists(username):
+            admins = admin_db.find()
+            for info in admins:
+                if info["userName"] == username.lower():
+                    return True
+            return False
 
 
         def hash_text(password):
