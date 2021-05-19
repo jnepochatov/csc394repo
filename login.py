@@ -42,7 +42,7 @@ def main():
                     candidateReg()
                     print("Registration Successful!")
                     break
-                elif reg_selection == 1:
+                elif reg_selection == 2:
                     companyReg()
                     print("Registration Successful!")
                     break
@@ -61,8 +61,10 @@ def main():
                     break
                 elif log_sel == 1:
                     candidate_login()
+                    break
                 elif log_sel == 2:
                     company_login()
+                    break
                 else:
                     print("Please select a valid option \"1\" or \"2\"")
                     break

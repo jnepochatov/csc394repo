@@ -76,5 +76,5 @@ class CompanyObject:
         self.db.insert_one(company_data)
 
 
-company = CompanyObject("X Station 360", "VideoGames@email.com", "7738979176", "XS360", "pcmasterrace", ["job1", "job2", "job3"])
-company.create()
+#company = CompanyObject("X Station 360", "VideoGames@email.com", "7738979176", "XS360", "pcmasterrace", ["job1", "job2", "job3"])
+#company.create()
