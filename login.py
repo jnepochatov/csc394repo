@@ -106,11 +106,12 @@ def main():
                 candidate_db.delete_one({
                     "userName": username
                 })
+                print("Deletion of " + username + " successful!")
             else:
                 company_db.delete_one({
                     "userName": username
                 })
-            print("Deletion of " + username + "successful!")
+                print("Deletion of " + username + " successful!")
 
         def candidate_login():
             username = str(input("Please enter your username: "))
