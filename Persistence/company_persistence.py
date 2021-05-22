@@ -1,6 +1,6 @@
 from data_retrieve import data_retrieve
 
-class candidate(data_retrieve):
+class company(data_retrieve):
     def __init__(self, _id):
         data_retrieve.__init__(self, _id)
         self._id = _id
