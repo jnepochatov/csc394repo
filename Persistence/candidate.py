@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from algo import find_matches
 
 
 class CandidateObject:
@@ -31,4 +32,6 @@ class CandidateObject:
                 'bestMatch': self.bestMatch,
                 'name': self.name
             }
-        self.db.insert_one(candidate_data)
+
+        cand_id = self.db.insert_one(candidate_data).inserted_id
+        find_matches(cand_id)

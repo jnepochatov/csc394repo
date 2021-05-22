@@ -1,8 +1,8 @@
 # Password-Username Database
 
 from hashlib import sha256
-from Persistence.candidate_persistence import CandidateObject
-from Persistence.company_persistence import CompanyObject
+from Persistence.candidate import CandidateObject
+from Persistence.company import CompanyObject
 
 from pymongo import MongoClient
 

@@ -1,15 +1,15 @@
 from pymongo import MongoClient
-
+from algo import find_matches
 
 class JobObject:
-    def __init__(self, jobName, jobRole, jobDescription, tech_skills, business_skills, attitude):
+    def __init__(self, jobName, jobRole, jobDescription, tech_skills, business_skills, attitude, bestMatch):
         self.jobName = jobName
         self.jobRole = jobRole
         self.jobDescription = jobDescription
         self.tech_skills = tech_skills
         self.business_skills = business_skills
         self.attitude = attitude
-        self.bestMatch = ["Candidate1"]
+        self.bestMatch = bestMatch
         self.db = MongoClient("mongodb+srv://Mblanca4:Team2SpringQuarter@team2.14wgw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").myFirstDatabase.job
 
     def create(self):
@@ -22,4 +22,8 @@ class JobObject:
             'attitude': self.attitude,
             'bestMatch': self.bestMatch,
         }
-        self.db.insert_one(job_data)
+        job_id = self.db.insert_one(job_data).inserted_id
+        find_matches(job_id)
+
+
+
