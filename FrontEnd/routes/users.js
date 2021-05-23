@@ -7,7 +7,7 @@ router.get('/login', (req,res)=>{
 })
 router.get('/register',(req,res)=>{
 	res.render('register')
-	})
+})
 router.get('/home', (req, res)=>{
 	res.render('home')
 })
@@ -41,6 +41,9 @@ router.get('/settings',(req, res)=>{
 router.get('/testing',(req, res)=>{
 	res.render('testing')
 })
+router.get('/registerScript',(req, res)=>{
+	res.render('registerScript')
+})
 
 
 
@@ -49,7 +52,7 @@ router.get('/testing',(req, res)=>{
 router.post('/register',(req,res)=>{
 })
 router.post('/login',(req,res,next)=>{
-	})
+})
 router.post('/home',(req,res)=>{
 })
 router.post('/termsOfAgreement', (req,res)=>{
@@ -60,12 +63,12 @@ router.post('/help', (req,res)=>{
 })
 router.post('/faq', (req,res)=>{
 })
-
 router.post('/baseProfile', (req,res)=>{
 })
 router.post('/testing', (req,res)=>{
 })
-
+router.post('/registerScript', (req,res)=>{
+})
 
 
 
@@ -91,5 +94,6 @@ router.get('/baseProfile', (req,res)=>{
 })
 router.get('/testing', (req,res)=>{
 })
-
+router.get('/registerScript', (req,res)=>{
+})
 module.exports = router;

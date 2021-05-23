@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 var multer = require('multer');
 
+
 //login page
 
 router.get('/', (req, res)=>{
@@ -45,6 +46,9 @@ router.get('/settings',(req,res)=>{
 })
 router.get('/testing',(req,res)=>{
 	res.render('testing')
+})
+router.get('/registerScript',(req,res)=>{
+	res.render('registerScript')
 })
 //to use router instance in other files
 module.exports = router

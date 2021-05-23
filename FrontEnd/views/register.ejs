@@ -3,65 +3,66 @@
 
 
 
-    <head>
+<head>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body{
-                margin:0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            .topnav{
-                overflow: hidden;
-                background-color: #333;
-            }
-            .topnav a{
-                float:left;
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px
-            }
-            .topnav a:hover{
-                background-color: gray;
-                color:blue;
-            }
-            .topnav a.active {
-                background-color: darkblue;
-                color: white;
-            }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .topnav{
+            overflow: hidden;
+            background-color: #333;
+        }
+        .topnav a{
+            float:left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px
+        }
+        .topnav a:hover{
+            background-color: gray;
+            color:blue;
+        }
+        .topnav a.active {
+            background-color: darkblue;
+            color: white;
+        }
 
-        </style>
-    </head>
+    </style>
+</head>
 
-    <body>
-
-
-
-
-    <h1>The Binary Job Search</h1>
-
-
-
-    <div class="topnav">
-        <a class="active" href="/users/contactUs">Contact Us</a>
-        <a href="/users/aboutUs">About Us</a>
-        <a href="/users/faq">FAQs</a>
-        <a href="/users/help">Help</a>
-        <a href="/users/login">Login</a>
-    </div>
-
-    <div style="padding-left:16px">
-        <h2>
-            Create an Account
-        </h2>
-    </div>
+<body>
 
 
 
 
-<form action="/users/register" method="POST">
+<h1>The Binary Job Search</h1>
+
+
+
+<div class="topnav">
+    <a class="active" href="/users/contactUs">Contact Us</a>
+    <a href="/users/aboutUs">About Us</a>
+    <a href="/users/faq">FAQs</a>
+    <a href="/users/help">Help</a>
+    <a href="/users/login">Login</a>
+</div>
+
+<div style="padding-left:16px">
+    <h2>
+        Create an Account
+    </h2>
+</div>
+
+
+
+
+ <form action="/users/register" method="POST">
+<!--<form name="registration" action="/pytest/pytests.py" method = "get">-->
     <div>
         <label for="email">Email</label>
         <input
@@ -117,9 +118,20 @@
     </div>
 
     <!--register button goes straight to home screen -->
+    <!-- <input type = "button" onclick="location.href='/users/home';" value = submit /> -->
 
 
-    <input type = "button" onclick="location.href='/users/home';" value = submit />
+
+
+    <input type = "button" onclick="function makeCallToRegisterScript() {
+        fetch('/users/registerScript').then(function(response) {
+        // Use the response sent here
+        console.log(response)
+            })
+        }
+            makeCallToRegisterScript()" value = submit />
+
+
 
 
 </form>
@@ -128,6 +140,6 @@
 
 
 
-    </body>
+</body>
 
 </html>
