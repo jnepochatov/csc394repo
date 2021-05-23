@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from algo import find_matches
+from candidate_algo import find_matches
 
 
 class CandidateObject:
@@ -10,7 +10,7 @@ class CandidateObject:
         self.email = email
         self.name = name
         self.phoneNum = phoneNum
-        self.references = business_skills
+        self.references = references
         self.tech_skills = tech_skills
         self.business_skills = business_skills
         self.attitude = attitude
