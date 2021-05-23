@@ -38,11 +38,8 @@ router.get('/applications',(req, res)=>{
 router.get('/settings',(req, res)=>{
 	res.render('settings')
 })
-router.get('/testing',(req, res)=>{
-	res.render('testing')
-})
-router.get('/registerScript',(req, res)=>{
-	res.render('registerScript')
+router.get('/companyRegistration',(req, res)=>{
+	res.render('companyRegistration')
 })
 
 
@@ -69,7 +66,8 @@ router.post('/testing', (req,res)=>{
 })
 router.post('/registerScript', (req,res)=>{
 })
-
+router.post('/companyRegistration', (req,res)=>{
+})
 
 
 //logout
@@ -94,6 +92,7 @@ router.get('/baseProfile', (req,res)=>{
 })
 router.get('/testing', (req,res)=>{
 })
-router.get('/registerScript', (req,res)=>{
+router.get('/companyRegistration', (req,res)=>{
 })
+
 module.exports = router;

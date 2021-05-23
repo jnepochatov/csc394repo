@@ -1,32 +1,34 @@
 <html>
 
 
-
-
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body{
-            margin:0;
+        body {
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
         }
-        .topnav{
+
+        .topnav {
             overflow: hidden;
             background-color: #333;
         }
-        .topnav a{
-            float:left;
+
+        .topnav a {
+            float: left;
             color: #f2f2f2;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
             font-size: 17px
         }
-        .topnav a:hover{
+
+        .topnav a:hover {
             background-color: gray;
-            color:blue;
+            color: blue;
         }
+
         .topnav a.active {
             background-color: darkblue;
             color: white;
@@ -38,10 +40,7 @@
 <body>
 
 
-
-
 <h1>The Binary Job Search</h1>
-
 
 
 <div class="topnav">
@@ -58,11 +57,8 @@
     </h2>
 </div>
 
-
-
-
- <form action="/users/register" method="POST">
-<!--<form name="registration" action="/pytest/pytests.py" method = "get">-->
+<form action="/users/register" method="POST">
+    <!--<form name="registration" action="/pytest/pytests.py" method = "get">-->
     <div>
         <label for="email">Email</label>
         <input
@@ -88,8 +84,7 @@
         Check Availability
     </button>
 
-
-    <div >
+    <div>
         <label for="password">Password</label>
         <input
                 type="password"
@@ -100,7 +95,7 @@
     </div>
 
 
-    <div >
+    <div>
         <label for="password2">Re-enter Password</label>
         <input
                 type="password"
@@ -110,35 +105,19 @@
         />
     </div>
 
-    <div >
-        <input type="checkbox"  id = "termsOfAgreement" name = "termsOfAgreement" value="checkbox">
+    <div>
+        <input type="checkbox" id="termsOfAgreement" name="termsOfAgreement" value="checkbox">
         <label for="checkbox"> I agree to the
             <a href="/users/termsOfAgreement" target="_blank"> terms of agreement.</a>
         </label><br>
     </div>
 
     <!--register button goes straight to home screen -->
-    <!-- <input type = "button" onclick="location.href='/users/home';" value = submit /> -->
-
-
-
-
-    <input type = "button" onclick="function makeCallToRegisterScript() {
-        fetch('/users/registerScript').then(function(response) {
-        // Use the response sent here
-        console.log(response)
-            })
-        }
-            makeCallToRegisterScript()" value = submit />
-
-
+    <input type="button" onclick="location.href='/users/home';" value=submit>
 
 
 </form>
-<p >Have An Account? <a href="/users/login">Login</a></p>
-
-
-
+<p>Have An Account? <a href="/users/login">Login</a></p>
 
 </body>
 

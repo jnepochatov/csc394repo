@@ -1,8 +1,36 @@
 <h1> Login </h1>
 
-<form action="/users/login" method="POST">
+<form action="/users/companyLogin" method="POST">
     <div>
+        <div>
+            <label for="Company Name">Company Name</label>
+            <input
+                    type="Companyname"
+                    name="Compnayname"
+                    placeholder="Enter Company Name"
+            />
+        </div>
+        <br>
 
+        <div>
+            <label for="Email">Email</label>
+            <input
+                    type="Email"
+                    name="Email"
+                    placeholder="Enter Email"
+            />
+        </div>
+        <br>
+
+        <div>
+            <label for="PhoneNumber">Phone Number</label>
+            <input
+                    type="PhoneNumber"
+                    name="PhoneNumber"
+                    placeholder="Enter Phone Number"
+            />
+            <br>
+        </div>
         <div>
             <label for="Username">Username</label>
             <input
@@ -39,9 +67,7 @@
     </div>
 
     <div>
-        <h4>
-            Don't have an account? Sign up <a href="/register">here</a>
-        </h4>
+
     </div>
 
 </form>

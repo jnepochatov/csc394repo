@@ -5,51 +5,49 @@ var multer = require('multer');
 
 //login page
 
-router.get('/', (req, res)=>{
-	res.render('welcome');
+router.get('/', (req, res) => {
+    res.render('welcome');
 })
 //register page
-router.get('/register', (req, res)=>{
-	res.render('register');
+router.get('/register', (req, res) => {
+    res.render('register');
 })
-router.get('/home', (req, res)=>{
-	res.render('home');
-})
-
-router.get('/termsOfAgreement',(req,res)=>{
-	res.render('termsOfAgreement')
+router.get('/home', (req, res) => {
+    res.render('home');
 })
 
-router.get('/aboutUs',(req,res)=>{
-	res.render('AboutUs')
+router.get('/termsOfAgreement', (req, res) => {
+    res.render('termsOfAgreement')
 })
-router.get('/help',(req,res)=>{
-	res.render('help')
+
+router.get('/aboutUs', (req, res) => {
+    res.render('AboutUs')
 })
-router.get('/faq',(req,res)=>{
-	res.render('faq')
+router.get('/help', (req, res) => {
+    res.render('help')
 })
-router.get('/contactUs',(req,res)=>{
-	res.render('contactUs')
+router.get('/faq', (req, res) => {
+    res.render('faq')
 })
-router.get('/baseProfile',(req,res)=>{
-	res.render('baseProfile')
+router.get('/contactUs', (req, res) => {
+    res.render('contactUs')
 })
-router.get('/jobSearch',(req,res)=>{
-	res.render('jobSearch')
+router.get('/baseProfile', (req, res) => {
+    res.render('baseProfile')
 })
-router.get('/applications',(req,res)=>{
-	res.render('applications')
+router.get('/jobSearch', (req, res) => {
+    res.render('jobSearch')
 })
-router.get('/settings',(req,res)=>{
-	res.render('settings')
+router.get('/applications', (req, res) => {
+    res.render('applications')
 })
-router.get('/testing',(req,res)=>{
-	res.render('testing')
+router.get('/settings', (req, res) => {
+    res.render('settings')
 })
-router.get('/registerScript',(req,res)=>{
-	res.render('registerScript')
+router.get('/companyRegistration', (req, res) => {
+    res.render('companyRegistration')
 })
+
 //to use router instance in other files
 module.exports = router
 
