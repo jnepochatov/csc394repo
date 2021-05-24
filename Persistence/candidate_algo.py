@@ -1,4 +1,4 @@
-import candidate_persistence as cd, company_persistence as cp, job_persistence as jb
+import Persistence.candidate_persistence as cd, Persistence.company_persistence as cp, Persistence.job_persistence as jb
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 

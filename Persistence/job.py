@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from job_algo import find_matches
+from Persistence.job_algo import find_matches
 
 class JobObject:
     def __init__(self, jobName, jobRole, jobDescription, tech_skills, business_skills, attitude, bestMatch):
@@ -24,3 +24,10 @@ class JobObject:
         }
         job_id = self.db.insert_one(job_data).inserted_id
         find_matches(job_id)
+
+#job = JobObject("Junior Software Developer", "Software Developer",
+                #"Looking for a full stack software developer who has experience developing in-house algorithms",
+                #["MongoDB", "HTML", "CSS", "Python"], ["Problem Solving", "Leadership"],
+                #["Hard-Working", "Attention to detail"], list())
+
+#job.create()

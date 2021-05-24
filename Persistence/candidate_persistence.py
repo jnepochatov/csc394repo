@@ -1,4 +1,4 @@
-from data_retrieve import data_retrieve
+from Persistence.data_retrieve import data_retrieve
 
 class candidate(data_retrieve):
     def __init__(self, _id):

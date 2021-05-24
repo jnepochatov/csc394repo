@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from candidate_algo import find_matches
+from Persistence.candidate_algo import find_matches
 
 
 class CandidateObject:
