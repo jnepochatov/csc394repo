@@ -3,19 +3,33 @@
     <title>Welcome to your candidate page</title>
         <h1>Hey there  {{ name }}</h1>
     <body>
-        Phone Number: {{ phoneNum }}
-    <br>
-        Email: {{ email }}
-    <br>
-        <ul>References:
-            {% for item in references %}
-            <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-        <ul>Tech Skills:
-            {% for item in tech_skills %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
+        <div class="container">
+            <h1>{{ name }}</h1>
+            <h3>Candidate Profile</h3>
+            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clipartkey.com%2Fview%2FxJJoxi_default-profile-picture-transparent%2F&psig=AOvVaw1P2OgVph7hrxe5I8bwwJBI&ust=1621993611789000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjoxKPb4_ACFQAAAAAdAAAAABAE" alt="profile-picture" border="0" /></a>
+            <h4>About Me</h4>
+            <p>Hi, I'm {{ name }}, I have a huge passion for web-development and programming. I love to learn and thrive from challenges.</p>
+            <h4>My Skills</h4>
+            <div class="listFlex">
+                <div>
+                    <ul>Tech Skills:
+                        {% for item in tech_skills %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <ul>References:
+                        {% for item in references %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <h4>Contact Info</h4>
+            Phone Number: {{ phoneNum }}
+            <br>
+            Email: {{ email }}
+        </div>
     </body>
 </html>
