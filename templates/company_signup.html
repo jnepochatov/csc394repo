@@ -1,61 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="column is-4 is-offset-4">
-    <h2 class="title">Company Sign Up</h2>
-    <form method="POST" action="/company_signup">
-
-        <div class="row border-bottom mb-2 p-3">
-            <div class="col text-center">
-                <div class="field">
-                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                        <input class="form-control" type="username" name="username" placeholder="Username">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row border-bottom mb-2 p-3">
-            <div class="col text-center">
-                <div class="field">
-                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                        <input class="form-control" type="password" name="password" placeholder="Password">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row border-bottom mb-2 p-3">
-            <div class="col text-center">
-                <div class="field">
-                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                        <input class="form-control" type="text" name="company_name" placeholder="Company Name">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row border-bottom mb-2 p-3">
-            <div class="col text-center">
-                <div class="field">
-                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                        <input class="form-control" type="email" name="email" placeholder="Email">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row border-bottom mb-2 p-3">
-            <div class="col text-center">
-                <div class="field">
-                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                        <input class="form-control" type="text" name="phoneNum" placeholder="Phone Number">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <button class="btn btn-primary" type="submit">Sign Up</button>
-    </form>
+<div class="container">
+    <div class="center">
+        <h2 class="title">Company Sign Up</h2>
+    </div>
 </div>
+
+<form method="POST" action="/company_signup">
+    <div class="input-container">
+        <input class="form-control row-input" type="username" name="username" placeholder="Username">
+    </div>
+
+    <div class="input-container">
+        <input class="form-control row-input" type="password" name="password" placeholder="Password">
+    </div>
+
+    <div class="input-container">
+        <input class="form-control row-input" type="email" name="email" placeholder="Email">
+    </div>
+
+    <div class="input-container">
+        <input class="form-control row-input" type="text" name="company_name" placeholder="Company Name">
+    </div>
+
+    <div class="input-container">
+        <input class="form-control row-input" type="text" name="phoneNum" placeholder="Phone Number">
+    </div>
+
+    <div class="container">
+        <div class="center">
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+        </div>
+    </div>
+</form>
 {% endblock %}

@@ -1,39 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="column is-4 is-offset-4">
-    <h2 class="title">Company Login</h2>
-    <div class="box">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <div class="notification is-danger">
-                {{ messages[0] }}
-            </div>
-        {% endif %}
-        {% endwith %}
-        <form method="POST" action="/company_login">
-           <div class="row border-bottom mb-2 p-3">
-               <div class="col text-center">
-                   <div class="field">
-                       <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                           <input class="form-control" type="username" name="username" placeholder="Username">
-                       </div>
-                   </div>
-               </div>
-           </div>
-
-            <div class="row border-bottom mb-2 p-3">
-               <div class="col text-center">
-                   <div class="field">
-                       <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                            <input class="form-control" type="password" name="password" placeholder="Password">
-                        </div>
-                   </div>
-               </div>
-            </div>
-
-            <button class="btn btn-primary" type="submit">Login</button>
-        </form>
+<div class="container">
+    <div class="center">
+        <h2 class="title">Company Login</h2>
     </div>
 </div>
+
+<div class="alert-container">
+    <div class="center">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+
+<form method="POST" action="/company_login">
+    <form method="POST" action="/candidate_login">
+    <div class="input-container">
+        <input class="form-control row-input" type="username" name="username" placeholder="Username">
+    </div>
+    <div class="input-container">
+        <input class="form-control row-input" type="password" name="password" placeholder="Password">
+    </div>
+    <div class="container">
+        <div class="center">
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+    </div>
+</form>
 {% endblock %}
