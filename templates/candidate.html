@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Welcome to your candidate page</title>
-<h1>Hey there  {{ name }}</h1>
-<body>
-Phone Number: {{ phoneNum }}
-<br>
-Email: {{ email }}
-<br>
-<ul>Tech Skills:
-    {% for item in techSkills %}
-        <li>{{ item }}</li>
-    {% endfor %}
-</ul>
-</body>
+    <title>Welcome to your candidate page</title>
+        <h1>Hey there  {{ name }}</h1>
+    <body>
+        Phone Number: {{ phoneNum }}
+    <br>
+        Email: {{ email }}
+    <br>
+        <ul>References:
+            {% for item in references %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <ul>Tech Skills:
+            {% for item in tech_skills %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </body>
 </html>

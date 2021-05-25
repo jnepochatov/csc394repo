@@ -1,9 +1,9 @@
 from flask import Flask, render_template, Blueprint,redirect, url_for, request, flash
-from flask_login import LoginManager, login_user
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from login import candidate_login, hash_text
+from login import candidate_login, hash_text, comp_login
 from Persistence.candidate import CandidateObject
+from Persistence.company import CompanyObject
 
 
 app = Flask(__name__)
@@ -24,9 +24,14 @@ def candidate_profile(username):
         name = info["name"]
         email = info["email"]
         phoneNum = info["phoneNum"]
-        techSkills = info["tech_skills"]
+        references = info["tech_skills"]
+        tech_skills = info["tech_skills"]
+        business_skills = info["tech_skills"]
+        att_skills = info["tech_skills"]
 
-    return render_template("candidate.html", username=username, name=name, email=email, phoneNum=phoneNum, techSkills=techSkills)
+    return render_template("candidate.html", username=username, name=name, email=email,
+                           phoneNum=phoneNum, refences=references, tech_skills=tech_skills,
+                           business_skills=business_skills, att_skills=att_skills)
 
 @app.route('/job/<job_id>')
 def job(job_id):
@@ -58,6 +63,20 @@ def login():
     else:
         return render_template('login.html')
 
+@app.route('/company_login', methods=['GET', 'POST'])
+def company_login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        remember = True if request.form.get('remember') else False
+        valid = company_login(username, password)
+        if not valid:
+            flash("Please check your login details and try again.")
+            return redirect(url_for('company_login'))
+        #return redirect(url_for('company_profile', username=username))
+    else:
+        return render_template('company_login.html')
+
 @app.route('/candidate_signup', methods=['GET', 'POST'])
 def candidate_signup():
     if request.method == 'POST':
@@ -68,13 +87,9 @@ def candidate_signup():
         name = request.form.get('name')
         phoneNum = request.form.get('phoneNum')
         references = request.form.get('references').strip().replace(' ', '').split(',')
-        print(references)
         tech_skills = request.form.get('tech_skills').strip().replace(' ', '').split(',')
-        print(tech_skills)
         business_skills = request.form.get('business_skills').strip().replace(' ', '').split(',')
-        print(business_skills)
         attitude_skills = request.form.get('attitude_skills').strip().replace(' ', '').split(',')
-        print(attitude_skills)
         candidate = CandidateObject(username, hashed_password,email, name, phoneNum, references, tech_skills, business_skills, attitude_skills, list())
         candidate.create()
         return redirect(url_for('login'))
@@ -83,7 +98,18 @@ def candidate_signup():
 
 @app.route('/company_signup', methods=['GET', 'POST'])
 def company_signup():
-
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        hashed_password = hash_text(password)
+        company_name = request.form.get('company_name')
+        email = request.form.get('email')
+        phoneNum = request.form.get('phoneNum')
+        company = CompanyObject(company_name, email, phoneNum, username, hashed_password, list())
+        company.create()
+        return redirect(url_for('company_login'))
+    else:
+        return render_template('company_signup.html')
     return render_template('company_signup.html')
 
 @app.route('/signup', methods=['POST'])

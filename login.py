@@ -43,6 +43,38 @@ def candidate_exists(username):
     return False
 
 
+def comp_login(username, password):
+    valid = is_valid_company_credentials(username.lower(), password)
+    if not valid:
+        return False
+    else:
+        return True
+
+def is_valid_company_credentials(username, password):
+    exists = company_exists(username)
+    companies = company_db.find()
+    if not exists:
+        print("The username you have entered is not registered")
+        return False
+    else:
+        # Check password section
+        passwordHash = hash_text(password)
+        for info in companies:
+            if info["userName"].lower() == username.lower():
+                if info["password"] == passwordHash:
+                    return True
+            else:
+                continue
+    return False
+
+
+def company_exists(username):
+    companies = company_db.find()
+    for info in companies:
+        if info["userName"] == username.lower():
+            return True
+    return False
+
 def hash_text(password):
     hashedText = sha256(password.encode('utf-8')).hexdigest()
     return hashedText
