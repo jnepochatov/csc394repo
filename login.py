@@ -10,7 +10,7 @@ company_db = dbs.Company
 admin_db = dbs.admin
 
 
-def candidate_login(username, password):
+def cand_login(username, password):
     valid = is_valid_candidate_credentials(username.lower(), password)
     if not valid:
         return False

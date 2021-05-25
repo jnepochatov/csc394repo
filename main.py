@@ -1,7 +1,7 @@
 from flask import Flask, render_template, Blueprint,redirect, url_for, request, flash
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from login import candidate_login, hash_text, comp_login
+from login import cand_login, hash_text, comp_login
 from Persistence.candidate import CandidateObject
 from Persistence.company import CompanyObject
 
@@ -50,26 +50,26 @@ def job(job_id):
                            techSkills=techSkills, businessSkills=businessSkills, attSkills=attSkills)
 
 @app.route('/login', methods=['GET', 'POST'])
-def login():
+def candidate_login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
         remember = True if request.form.get('remember') else False
-        valid = candidate_login(username, password)
+        valid = cand_login(username, password)
         if not valid:
             flash("Please check your login details and try again.")
-            return redirect(url_for('login'))
+            return redirect(url_for('candidate_login'))
         return redirect(url_for('candidate_profile', username=username))
     else:
-        return render_template('login.html')
+        return render_template('candidate_login.html')
 
 @app.route('/company_login', methods=['GET', 'POST'])
 def company_login():
     if request.method == 'POST':
-        username = request.form.get('username')
+        username = request.form.get('username').lower()
         password = request.form.get('password')
         remember = True if request.form.get('remember') else False
-        valid = company_login(username, password)
+        valid = comp_login(username, password)
         if not valid:
             flash("Please check your login details and try again.")
             return redirect(url_for('company_login'))
@@ -92,7 +92,7 @@ def candidate_signup():
         attitude_skills = request.form.get('attitude_skills').strip().replace(' ', '').split(',')
         candidate = CandidateObject(username, hashed_password,email, name, phoneNum, references, tech_skills, business_skills, attitude_skills, list())
         candidate.create()
-        return redirect(url_for('login'))
+        return redirect(url_for('candidate_login'))
     else:
         return render_template('candidate_signup.html')
 
@@ -110,12 +110,6 @@ def company_signup():
         return redirect(url_for('company_login'))
     else:
         return render_template('company_signup.html')
-    return render_template('company_signup.html')
-
-@app.route('/signup', methods=['POST'])
-def signup_post():
-    # code to validate and add user to database goes here
-    return redirect(url_for('login'))
 
 @app.route('/logout')
 def logout():
