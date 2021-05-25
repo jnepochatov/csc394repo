@@ -2,7 +2,8 @@ from flask import Flask, render_template, Blueprint,redirect, url_for, request, 
 from flask_login import LoginManager, login_user
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from login import candidate_login
+from login import candidate_login, hash_text
+from Persistence.candidate import CandidateObject
 
 
 app = Flask(__name__)
@@ -62,13 +63,20 @@ def candidate_signup():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
+        hashed_password = hash_text(password)
         email = request.form.get('email')
         name = request.form.get('name')
         phoneNum = request.form.get('phoneNum')
-        references = request.form.get('references')
-        tech_skills = request.form.get('tech_skills')
-        business_skills = request.form.get('business_skills')
-        attitude_skills = request.form.get('attitude_skills')
+        references = request.form.get('references').strip().replace(' ', '').split(',')
+        print(references)
+        tech_skills = request.form.get('tech_skills').strip().replace(' ', '').split(',')
+        print(tech_skills)
+        business_skills = request.form.get('business_skills').strip().replace(' ', '').split(',')
+        print(business_skills)
+        attitude_skills = request.form.get('attitude_skills').strip().replace(' ', '').split(',')
+        print(attitude_skills)
+        candidate = CandidateObject(username, hashed_password,email, name, phoneNum, references, tech_skills, business_skills, attitude_skills, list())
+        candidate.create()
         return redirect(url_for('login'))
     else:
         return render_template('candidate_signup.html')

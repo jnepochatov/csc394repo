@@ -42,6 +42,7 @@ def candidate_exists(username):
             return True
     return False
 
+
 def hash_text(password):
     hashedText = sha256(password.encode('utf-8')).hexdigest()
     return hashedText
