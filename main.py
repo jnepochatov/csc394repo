@@ -19,7 +19,6 @@ def index():
 @app.route('/candidate/<username>')
 def candidate_profile(username):
     candidate = candidates.find({"userName": username})
-
     for info in candidate:
         name = info["name"]
         email = info["email"]
@@ -49,7 +48,7 @@ def job(job_id):
     return render_template("job.html", jobName=jobName, jobRole=jobRole, jobDescription=jobDescription,
                            techSkills=techSkills, businessSkills=businessSkills, attSkills=attSkills)
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/candidate_login', methods=['GET', 'POST'])
 def candidate_login():
     if request.method == 'POST':
         username = request.form.get('username')
