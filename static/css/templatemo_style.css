@@ -118,20 +118,14 @@ h2 { font-size: 24px; }
 	font-size: 30px;
 	margin-top: 0;
 }
-article { margin-top: 40px; }
-article p {
-	margin-bottom: 15px;
-	text-align: justify;
-}
+
 footer {
-	margin-top: 40px;
-	overflow: hidden;
+    position:absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
-footer p { margin-bottom: 0; }
-footer .col-lg-6, footer .col-md-6 {
-	padding-left: 0;
-	padding-right: 0;
-}
+
 .templatemo-social { text-align: right; }
 .templatemo-social i {
 	border: 1px solid #ccc;
