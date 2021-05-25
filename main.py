@@ -72,7 +72,7 @@ def company_login():
         if not valid:
             flash("Please check your login details and try again.")
             return redirect(url_for('company_login'))
-        #return redirect(url_for('company_profile', username=username))
+        return redirect(url_for('company_profile', username=username))
     else:
         return render_template('company_login.html')
 
@@ -109,6 +109,23 @@ def company_signup():
         return redirect(url_for('company_login'))
     else:
         return render_template('company_signup.html')
+
+@app.route('/company_profile/<username>')
+def company_profile(username):
+    company = companies.find({"userName": username})
+
+    for info in company:
+        userName = info["userName"]
+        companyName = info["companyName"]
+        email = info["email"]
+        phoneNum = info["phoneNum"]
+
+    return render_template('company_profile.html', userName=userName, companyname=companyName, email=email, phoneNum=phoneNum)
+
+@app.route('/signup', methods=['POST'])
+def signup_post():
+    # code to validate and add user to database goes here
+    return redirect(url_for('login'))
 
 @app.route('/logout')
 def logout():
