@@ -16,7 +16,7 @@ companies = MongoClient("mongodb+srv://Mblanca4:Team2SpringQuarter@team2.14wgw.m
 def index():
     return render_template('index.html')
 
-@app.route('/candidate/<username>')
+@app.route('/candidate_profile/<username>')
 def candidate_profile(username):
     candidate = candidates.find({"userName": username})
     for info in candidate:
@@ -28,7 +28,7 @@ def candidate_profile(username):
         business_skills = info["tech_skills"]
         att_skills = info["tech_skills"]
 
-    return render_template("candidate.html", username=username, name=name, email=email,
+    return render_template("candidate_profile.html", username=username, name=name, email=email,
                            phoneNum=phoneNum, refences=references, tech_skills=tech_skills,
                            business_skills=business_skills, att_skills=att_skills)
 
