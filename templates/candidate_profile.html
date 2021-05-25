@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
     <title>Welcome to your candidate page</title>
@@ -12,6 +15,13 @@
             <h4>My Skills</h4>
             <div class="listFlex">
                 <div>
+                    <ul>References:
+                        {% for item in references %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
                     <ul>Tech Skills:
                         {% for item in tech_skills %}
                         <li>{{ item }}</li>
@@ -19,12 +29,20 @@
                     </ul>
                 </div>
                 <div>
-                    <ul>References:
-                        {% for item in references %}
+                    <ul>Business Skills:
+                        {% for item in business_skills %}
                         <li>{{ item }}</li>
                         {% endfor %}
                     </ul>
                 </div>
+                <div>
+                    <ul>Attitude Skills:
+                        {% for item in att_skills %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
             </div>
             <h4>Contact Info</h4>
             Phone Number: {{ phoneNum }}
@@ -33,3 +51,4 @@
         </div>
     </body>
 </html>
+{% endblock %}

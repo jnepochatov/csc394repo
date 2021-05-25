@@ -23,10 +23,10 @@ def candidate_profile(username):
         name = info["name"]
         email = info["email"]
         phoneNum = info["phoneNum"]
-        references = info["tech_skills"]
+        references = info["references"]
         tech_skills = info["tech_skills"]
-        business_skills = info["tech_skills"]
-        att_skills = info["tech_skills"]
+        business_skills = info["business_skills"]
+        att_skills = info["attitude"]
 
     return render_template("candidate_profile.html", username=username, name=name, email=email,
                            phoneNum=phoneNum, refences=references, tech_skills=tech_skills,
@@ -119,6 +119,7 @@ def company_profile(username):
         companyName = info["companyName"]
         email = info["email"]
         phoneNum = info["phoneNum"]
+        jobList = info['job_list']
 
     return render_template('company_profile.html', userName=userName, companyname=companyName, email=email, phoneNum=phoneNum)
 
