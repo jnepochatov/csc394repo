@@ -244,5 +244,6 @@ def add_companies():
 def del_companies():
     companies.remove( {} )
 
-def
+def add_jobs():
+
 

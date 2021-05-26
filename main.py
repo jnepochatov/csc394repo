@@ -80,6 +80,7 @@ def company_login():
 def candidate_signup():
     if request.method == 'POST':
         username = request.form.get('username')
+
         password = request.form.get('password')
         hashed_password = hash_text(password)
         email = request.form.get('email')
@@ -89,9 +90,13 @@ def candidate_signup():
         tech_skills = request.form.get('tech_skills').strip().replace(' ', '').split(',')
         business_skills = request.form.get('business_skills').strip().replace(' ', '').split(',')
         attitude_skills = request.form.get('attitude_skills').strip().replace(' ', '').split(',')
-        candidate = CandidateObject(username, hashed_password,email, name, phoneNum, references, tech_skills, business_skills, attitude_skills, list())
-        candidate.create()
-        return redirect(url_for('candidate_login'))
+        if username == "" or password == "" or email == "":
+            flash("Incorrect signup details.")
+            return redirect(url_for('candidate_signup'))
+        else:
+            candidate = CandidateObject(username, hashed_password,email, name, phoneNum, references, tech_skills, business_skills, attitude_skills, list())
+            candidate.create()
+            return redirect(url_for('candidate_login'))
     else:
         return render_template('candidate_signup.html')
 
@@ -104,9 +109,13 @@ def company_signup():
         company_name = request.form.get('company_name')
         email = request.form.get('email')
         phoneNum = request.form.get('phoneNum')
-        company = CompanyObject(company_name, email, phoneNum, username, hashed_password, list())
-        company.create()
-        return redirect(url_for('company_login'))
+        if username == "" or password == "" or email == "":
+            flash("Incorrect signup details.")
+            return redirect(url_for('candidate_signup'))
+        else:
+            company = CompanyObject(company_name, email, phoneNum, username, hashed_password, list())
+            company.create()
+            return redirect(url_for('company_login'))
     else:
         return render_template('company_signup.html')
 
