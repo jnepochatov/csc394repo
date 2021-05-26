@@ -2,7 +2,8 @@ from pymongo import MongoClient
 from Persistence.job_algo import find_matches
 
 class JobObject:
-    def __init__(self, jobName, jobRole, jobDescription, tech_skills, business_skills, attitude, bestMatch):
+    def __init__(self, jobCompany, jobName, jobRole, jobDescription, tech_skills, business_skills, attitude, bestMatch):
+        self.jobCompany = jobCompany
         self.jobName = jobName
         self.jobRole = jobRole
         self.jobDescription = jobDescription
@@ -14,6 +15,7 @@ class JobObject:
 
     def create(self):
         job_data = {
+            'jobCompany': self.jobCompany,
             'jobName': self.jobName,
             'jobRole': self.jobRole,
             'jobDescription': self.jobDescription,

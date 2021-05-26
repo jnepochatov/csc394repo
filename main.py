@@ -51,7 +51,7 @@ def job(job_id):
 @app.route('/candidate_login', methods=['GET', 'POST'])
 def candidate_login():
     if request.method == 'POST':
-        username = request.form.get('username')
+        username = request.form.get('username').lower()
         password = request.form.get('password')
         remember = True if request.form.get('remember') else False
         valid = cand_login(username, password)
