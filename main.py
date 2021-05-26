@@ -111,7 +111,7 @@ def company_signup():
         phoneNum = request.form.get('phoneNum')
         if username == "" or password == "" or email == "":
             flash("Incorrect signup details.")
-            return redirect(url_for('candidate_signup'))
+            return redirect(url_for('company_signup'))
         else:
             company = CompanyObject(company_name, email, phoneNum, username, hashed_password, list())
             company.create()
