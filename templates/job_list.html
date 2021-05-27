@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-  <title>{{ companyName }}</title>
+
+  {% for dictionary in company_list %}
+  <table border=1>
+    {% for key in dictionary %}
+      <tr>
+        <th>
+          <>{{ key }}</>
+        </th>
+        <td>
+          {{ dictionary[key] }}
+        </td>
+      </tr>
+    {% endfor %}
+    <br>
+  </table>
+  {% endfor %}
 
 
 </body>

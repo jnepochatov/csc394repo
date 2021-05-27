@@ -137,6 +137,12 @@ def signup_post():
     # code to validate and add user to database goes here
     return redirect(url_for('login'))
 
+@app.route('/job_list')
+def job_list():
+    #Placeholder until we add more jobs
+    company_list = list(companies.find())
+    return render_template('job_list.html', company_list=company_list)
+
 @app.route('/logout')
 def logout():
     return 'Logout'
