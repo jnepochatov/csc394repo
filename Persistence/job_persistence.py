@@ -63,13 +63,6 @@ class job(data_retrieve):
             self.db.update_one(query, update)
         return
 
-    def update_tech(self, job_id, new_desc):
-        query = {"_id": job_id}
-        if query is not None:
-            update = {"$set": {"jobDescription": new_desc}}
-            self.db.update_one(query, update)
-        return
-
     def update_tech(self, job_id, new_tech):
         query = {"_id": job_id}
         if query is not None:

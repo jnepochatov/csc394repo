@@ -8,10 +8,10 @@ def find_matches(job_id):
     client = MongoClient("mongodb+srv://jryan52:password1234@team2.14wgw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     cursor = client.myFirstDatabase.Candidate.find({})
 
-    job       = jb.job(job_id)
-    j_tech    = [x.lower() for x in job.get_tech()]
-    j_biz     = [x.lower() for x in job.get_business()]
-    j_att     = [x.lower() for x in job.get_attitude()]
+    job = jb.job(job_id)
+    j_tech = [x.lower() for x in job.get_tech()]
+    j_biz = [x.lower() for x in job.get_business()]
+    j_att = [x.lower() for x in job.get_attitude()]
     j_matches = []
 
     if len(job.get_matches()) > 0:
@@ -22,9 +22,9 @@ def find_matches(job_id):
     for doc in cursor:
         candidate_id = doc["_id"]
         candidate = cd.candidate(candidate_id)
-        c_tech    = [x.lower() for x in candidate.get_tech()]
-        c_biz     = [x.lower() for x in candidate.get_business()]
-        c_att     = [x.lower() for x in candidate.get_attitude()]
+        c_tech = [x.lower() for x in candidate.get_tech()]
+        c_biz = [x.lower() for x in candidate.get_business()]
+        c_att = [x.lower() for x in candidate.get_attitude()]
         c_matches = candidate.get_matches()
 
         tech_count, business_count, attitude_count = 0, 0, 0
