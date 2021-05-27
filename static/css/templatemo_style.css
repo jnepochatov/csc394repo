@@ -21,33 +21,16 @@ html, body { height: 100%; }
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-.center-alert {
-    margin: 0;
-    position: relative;
-    top: 20%;
-    left: 74%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
 .alert-container {
     height: 50px;
 }
 .container {
-    height: 100px;
     position: relative;
 }
 .input-container {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 }
 h1, h2 {
     margin-bottom: 20px;

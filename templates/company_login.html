@@ -2,13 +2,13 @@
 
 {% block content %}
 <div class="container">
-    <div class="center">
+    <div class="position: absolute">
         <h2 class="title">Company Login</h2>
     </div>
 </div>
 
-<div class="alert-container">
-    <div class="center-alert-big">
+<div class="container">
+    <div class="position: absolute;">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <div class="alert alert-danger">
@@ -19,18 +19,19 @@
     </div>
 </div>
 
-<form method="POST" action="/company_login">
+<div class="container">
     <form method="POST" action="/candidate_login">
-    <div class="input-container">
-        <input class="form-control row-input" type="username" name="username" placeholder="Username">
-    </div>
-    <div class="input-container">
-        <input class="form-control row-input" type="password" name="password" placeholder="Password">
-    </div>
-    <div class="container">
-        <div class="center">
+        <div class="position: absolute">
+            <input class="form-control row-input" type="username" name="username" placeholder="Username">
+        </div>
+
+        <div class="position: absolute">
+            <input class="form-control row-input" type="password" name="password" placeholder="Password">
+        </div>
+
+        <div class="position: absolute">
             <button class="btn btn-primary" type="submit">Login</button>
         </div>
-    </div>
-</form>
+    </form>
+</div>
 {% endblock %}

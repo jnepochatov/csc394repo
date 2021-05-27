@@ -2,13 +2,13 @@
 
 {% block content %}
 <div class="container">
-    <div class="center">
+    <div class="position: absolute">
         <h2 class="title">Candidate Sign Up</h2>
     </div>
 </div>
 
-<div class="alert-container">
-    <div class="center-alert">
+<div class="container">
+    <div class="position: absolute;">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <div class="alert alert-danger">
@@ -19,47 +19,47 @@
     </div>
 </div>
 
-<form method="POST" action="/candidate_signup">
-    <div class="input-container">
-        <input class="form-control row-input" type="username" name="username" placeholder="Username">
-    </div>
+<div class="container">
+    <form method="POST" action="/candidate_signup">
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="username" name="username" placeholder="Username">
+        </div>
 
-    <div class="input-container">
-        <input class="form-control row-input" type="password" name="password" placeholder="Password">
-    </div>
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="password" name="password" placeholder="Password">
+        </div>
 
-    <div class="input-container">
-        <input class="form-control row-input" type="email" name="email" placeholder="Email">
-    </div>
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="email" name="email" placeholder="Email">
+        </div>
 
-    <div class="input-container">
-        <input class="form-control row-input" type="text" name="name" placeholder="Name">
-    </div>
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="name" placeholder="Name">
+        </div>
 
-    <div class="input-container">
-        <input class="form-control row-input" type="text" name="phoneNum" placeholder="Phone Number">
-    </div>
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="phoneNum" placeholder="Phone Number">
+        </div>
 
-    <div class="input-container">
-        <input class="form-control row-input" type="text" name="references" placeholder="References (separate with a comma)">
-    </div>
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="references" placeholder="References (separate with a comma)">
+        </div>
 
-    <div class="input-container">
-        <input class="form-control row-input" type="text" name="tech_skills" placeholder="Tech Skills (separate with a comma)">
-    </div>
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="tech_skills" placeholder="Tech Skills (separate with a comma)">
+        </div>
 
-    <div class="input-container">
-        <input class="form-control row-input" type="text" name="business_skills" placeholder="Business Skills (separate with a comma)">
-    </div>
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="business_skills" placeholder="Business Skills (separate with a comma)">
+        </div>
 
-    <div class="input-container">
-        <input class="form-control row-input" type="text" name="attitude_skills" placeholder="Attitude Skills (separate with a comma)">
-    </div>
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="attitude_skills" placeholder="Attitude Skills (separate with a comma)">
+        </div>
 
-    <div class="container">
-        <div class="center">
+        <div class="position: absolute;">
             <button class="btn btn-primary" type="submit">Sign Up</button>
         </div>
-    </div>
-</form>
+    </form>
+</div>
 {% endblock %}
