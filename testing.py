@@ -245,5 +245,9 @@ def del_companies():
     companies.remove( {} )
 
 def add_jobs():
+    return
 
+def test():
+    company = list(companies.find())
+    print(company)
 
