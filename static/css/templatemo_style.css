@@ -13,11 +13,19 @@ html, body { height: 100%; }
 
 .green { color: #3B3; }
 .blue { color: #09E; }
+.center-alert-big {
+    margin: 0;
+    position: relative;
+    top: 20%;
+    left: 55%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
 .center-alert {
     margin: 0;
-    position: absolute;
-    top: 25%;
-    left: 29%;
+    position: relative;
+    top: 20%;
+    left: 74%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
