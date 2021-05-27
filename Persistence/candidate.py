@@ -19,7 +19,6 @@ class CandidateObject:
 
 
     def create(self):
-
         candidate_data = {
                 'password': self.password,
                 'userName': self.username,
@@ -31,7 +30,6 @@ class CandidateObject:
                 'attitude': self.attitude,
                 'bestMatch': self.bestMatch,
                 'name': self.name
-            }
-
+        }
         cand_id = self.db.insert_one(candidate_data).inserted_id
         find_matches(cand_id)

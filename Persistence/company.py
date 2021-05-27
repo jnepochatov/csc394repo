@@ -11,7 +11,6 @@ class CompanyObject:
         self.db = MongoClient("mongodb+srv://Mblanca4:Team2SpringQuarter@team2.14wgw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").myFirstDatabase.Company
 
     def addJob(self, jobID):
-
         self.job_list.append(jobID)
 
 
@@ -24,5 +23,4 @@ class CompanyObject:
             'password': self.password,
             'job_list': self.job_list,
         }
-
         self.db.insert_one(company_data)
