@@ -26,7 +26,9 @@ class JobObject:
         }
         job_id = self.db.insert_one(job_data).inserted_id
         find_matches(job_id)
+
 """
+
 job = JobObject(1, "accountant", "accountant", "Looking for a skilled accountant willing to put in the time.", ["python", "MATLAB"], ["Quickbooks", "Accounting", "Finance", "mathematics"], ["committed", "professional", "responsible"], list()).create()
 job = JobObject(2, "programmer", "programming", "need experienced programmers", ["C", "C#", "C++", "Assembly"], ["communication", "problem solving", "critical thinking"], ["committed", "dependable", "professional"], list()).create()
 job = JobObject(3, "software developer", "software developer", "need beginner software developers", ["Java", "python", "PL/SQL"], ["communication", "problem solving", "critical thinking"], ["committed", "dependable", "professional"], list()).create()
@@ -50,4 +52,5 @@ job = JobObject(17, "puyo exterminator", "exterminator", "time for puyo puyo", l
 job = JobObject(18, "architect", "opposite of demolition", "what should the buildings look like though", list(), ["Organization", "engineering"], ["innovative", "creative"], list()).create()
 job = JobObject(19, "engineer", "how", "enginering...", ["MATLAB"], ["engineering"], ["innovative", "adaptable", "creative"], list()).create()
 job = JobObject(20, "graphic design", "graphic designer", "whoah did you make this!", ["CSS"], ["graphic design"], ["creative"], list())
+
 """
