@@ -1,13 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
+<style>
+  table, th, td {
+    border: 1px solid black;
+  }
 
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #jobs td, #jobs th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  #jobs tr:hover{background-color: #ddd;}
+
+  #jobs tr:hover {background-color: #ddd;}
+
+  #jobs th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+
+
+</style>
+
+<body>
+<p id="demo"></p>
+<!--<script>
+  var arr=["ID","Job ID","Job Name","Job Role","Job Description","Tech Skills","Business Skills","Attide","Best Match"];
+
+  var text = "";
+  var i;
+  for(i=0;i<arr.length;i++){
+    text += arr[i] + "<br>";
+  }
+  document.getElementById("demo").innerHTML = text;
+</script>
+-->
+<h1> Available Jobs </h1>
   {% for dictionary in job_list %}
-  <table border=1>
+  <table border=1, id="jobs">
     {% for key in dictionary %}
+
       <tr>
         <th>
-          <>{{ key }}</>
+          {{ key }}
+
         </th>
         <td>
           {{ dictionary[key] }}
@@ -16,6 +62,7 @@
     {% endfor %}
     <br>
   </table>
+
   {% endfor %}
 
 
