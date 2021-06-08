@@ -1,4 +1,4 @@
-import Persistence.candidate_persistence as cd, Persistence.job_persistence as jb
+import candidate_persistence as cd, job_persistence as jb
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
@@ -57,8 +57,10 @@ def find_matches(candidate_id):
                 if total_score > min_score:
                     del matches[-1]
                     matches.append((job_id, total_score))
-            matches = matches.sort(key = lambda x: x[1])
+            matches = matches.sort(key = lambda x: x[1]) 
     #Update the best matches list in the database
-    candidate.db.update_one({"_id" : ObjectId(candidate_id)}, { "$set" : {"bestMatch" : matches}})
+    if matches != None: 
+        matches = list(matches)       
+        candidate.db.update_one({"_id" : ObjectId(candidate_id)}, { "$set" : {"bestMatch" : matches}})
 
 #find_matches("60ac7f921ab56f248fd12fe0")
