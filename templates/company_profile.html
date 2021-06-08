@@ -1,22 +1,22 @@
-{% extends "base.html" %}
-
-{% block content %}
-<div class="templatemo-container">
-    <div class="position: absolute">
-        <h2 class="title">Company Profile Page</h2>
-    </div>
-</div>
-
-<div class="templatemo-container">
-    <div class="position: absolute;">
-        <h1> {{ companyName }}'s Company Page </h1>
-        <div class="position:absolute;">
-            <ul>
-                <li>Email: {{ email }}</li>
-                <li>Phone Number: {{ phoneNum }}</li>
-            </ul>
+<!DOCTYPE html>
+<html lang="en">
+    <title>Welcome to your Company Page</title>
+    <body>
+        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1>Hello {{ companyName }}</h1>
+                        <h2>You are signed in as {{ userName }}</h2>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>Email: {{ email }}</li>
+                            <li>Phone Number: {{ phoneNum }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
-{% endblock %}
+    </body>
+</html>
