@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container" xmlns:text-align="http://www.w3.org/1999/xhtml" xmlns:text-align="http://www.w3.org/1999/xhtml"
+     xmlns:text-align="http://www.w3.org/1999/xhtml">
     <div class="position: absolute">
         <h2 class="title">Candidate Sign Up</h2>
     </div>
@@ -45,110 +46,221 @@
             <input class="form-control row-input" type="text" name="references" placeholder="References (separate with a comma)">
         </div>
 
-        <!--<div class="position: absolute;">
-            <input class="form-control row-input" type="text" name="tech_skills" placeholder="Tech Skills (separate with a comma)">
-        </div>
+        <br>
 
-        <div class="position: absolute;">
-            <input class="form-control row-input" type="text" name="business_skills" placeholder="Business Skills (separate with a comma)">
-        </div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Tech Skills</th>
+                <th>Business Skills</th>
+                <th>Attitude</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkObject" name="techSkill" value="Object Oriented Programming">
+                            <label class="custom-control-label" for="chkObject">OO Programming</label>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkOrganization" name="businessSkill" value="Organization">
+                            <label class="custom-control-label" for="chkOrganization">Organization</label>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkAccountability"name="attitudeSkill" value="Accountability">
+                            <label class="custom-control-label" for="chkAccountability">Accountability</label>
+                        </div>
+                    </th>
+                </tr>
 
-        <div class="position: absolute;">
-            <input class="form-control row-input" type="text" name="attitude_skills" placeholder="Attitude Skills (separate with a comma)">
-        </div>-->
+                <tr>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkFunctional" name="techSkill" value="Functional Programming">
+                            <label class="custom-control-label" for="chkFunctional">Func Programming</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkManagement"name="businessSkill" value="Management">
+                            <label class="custom-control-label" for="chkManagement">Management</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkAdaptability" name="attitudeSkill" value="Adaptability">
+                            <label class="custom-control-label" for="chkAdaptability">Adaptability</label>
+                        </div>
+                    </th>
+                </tr>
 
-        <div style="font-size:14px; position:relative;">
-            <br>
-            <p>Select the skills that apply to you:<br>
-            Object Oriented Programming
-            <input type="checkbox" id="chkObject" name="techSkill" value="Object Oriented Programming">
-            <br>
-            Functional Programming
-            <input type="checkbox" id="chkFunctional" name="techSkill" value="Functional Programming">
-            <br>
-            Dynamic Programming
-            <input type="checkbox" id="chkDynamic" name="techSkill" value="Dynamic Programming">
-            <br>
-            Scripting
-            <input type="checkbox" id="chkScript" name="techSkill" value="Scripting">
-            <br>
-            App Development
-            <input type="checkbox" id="chkApp" name="techSkill" value="App Development">
-            <br>
-            Static Programming
-            <input type="checkbox" id="chkStatic" name="techSkill" value="Static Programming">
-            <br>
-            Database Programming
-            <input type="checkbox" id="chkDatabase" name="techSkill" value="Database Programming">
-            <br>
-            Stack Based Programming
-            <input type="checkbox" id="chkStack" name="techSkill" value="Stack Based Programming">
-            <br>
-            Data-Oriented Programming
-            <input type="checkbox" id="chkData" name="techSkill" value="Data-Oriented Programming">
-            <br>
-            Assembly
-            <input type="checkbox" id="chkAssembly" name="techSkill" value="Assembly">
-            <br>
-            Organization
-            <input type="checkbox" id="chkOrganization" name="businessSkill" value="Organization">
-            <br>
-            Management
-            <input type="checkbox" id="chkManagement"name="businessSkill" value="Management">
-            <br>
-            Support/Customer Service
-            <input type="checkbox" id="chkSupport"name="businessSkill" value="Support/Customer Service">
-            <br>
-            Analysis
-            <input type="checkbox" id="chkAnalysis"name="businessSkill" value="Analysis">
-            <br>
-            Problem Solving
-            <input type="checkbox" id="chkProblem"name="businessSkill" value="Problem Solving">
-            <br>
-            Finance/Accoutning
-            <input type="checkbox" id="chkFinance"name="businessSkill" value="Finance/Accounting">
-            <br>
-            Writing
-            <input type="checkbox" id="chkWriting"name="businessSkill" value="Writing">
-            <br>
-            Public Speaking/Presenting
-            <input type="checkbox" id="chkPublic"name="businessSkill" value="Public Speaking/Presenting">
-            <br>
-            Time Management
-            <input type="checkbox" id="chkTime"name="businessSkill" value="Time Management">
-            <br>
-            Accountability
-            <input type="checkbox" id="chkAccountability"name="businessSkill" value="Accountability">
-            <br>
-            Adaptability
-            <input type="checkbox" id="chkAdaptability" name="attitudeSkill" value="Adaptability">
-            <br>
-            Honesty
-            <input type="checkbox" id="chkHonesty" name="attitudeSkill" value="Honesty">
-            <br>
-            Positive/Optimistic
-            <input type="checkbox" id="chkPositive" name="attitudeSkill" value="Positive/Optimistic">
-            <br>
-            Logical
-            <input type="checkbox" id="chkLogical" name="attitudeSkill" value="Logical">
-            <br>
-            Creativity
-            <input type="checkbox" id="chkCreativity" name="attitudeSkill" value="Creativity">
-            <br>
-            Critical Thinking
-            <input type="checkbox" id="chkCritical" name="attitudeSkill" value="Critical Thinking">
-            <br>
-            Innovative
-            <input type="checkbox" id="chkInnovative" name="attitudeSkill" value="Innovative">
-            <br>
-            Leadership
-            <input type="checkbox" id="chkLeadership" name="attitudeSkill" value="Leadership">
-            <br>
-            Respectful
-            <input type="checkbox" id="chkRespectful" name="attitudeSkill" value="Respectful">
-            <br>
-        </p>
-        </div>
+                <tr>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkDynamic" name="techSkill" value="Dynamic Programming">
+                            <label class="custom-control-label" for="chkDynamic">Dynamic Programming</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkSupport"name="businessSkill" value="Support/Customer Service">
+                            <label class="custom-control-label" for="chkSupport">Customer Service</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkHonesty" name="attitudeSkill" value="Honesty">
+                            <label class="custom-control-label" for="chkHonesty">Honesty</label>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkScript" name="techSkill" value="Scripting">
+                            <label class="custom-control-label" for="chkScript">Scripting</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkAnalysis" name="businessSkill" value="Analysis">
+                            <label class="custom-control-label" for="chkAnalysis">Analysis</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkPositive" name="attitudeSkill" value="Positive/Optimistic">
+                            <label class="custom-control-label" for="chkPositive">Positive/Optimistic</label>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkApp" name="techSkill" value="App Development">
+                            <label class="custom-control-label" for="chkApp">App Development</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkProblem"name="businessSkill" value="Problem Solving">
+                            <label class="custom-control-label" for="chkProblem">Problem Solving</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkLogical" name="attitudeSkill" value="Logical">
+                            <label class="custom-control-label" for="chkLogical">Logical</label>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkStatic" name="techSkill" value="Static Programming">
+                            <label class="custom-control-label" for="chkStatic">Static Programming</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkFinance"name="businessSkill" value="Finance/Accounting">
+                            <label class="custom-control-label" for="chkFinance">Finance/Accounting</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkCreativity" name="attitudeSkill" value="Creativity">
+                            <label class="custom-control-label" for="chkCreativity">Creativity</label>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkDatabase" name="techSkill" value="Database Programming">
+                            <label class="custom-control-label" for="chkDatabase">DB Programming</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkWriting" name="businessSkill" value="Writing">
+                            <label class="custom-control-label" for="chkWriting">Writing</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkCritical" name="attitudeSkill" value="Critical Thinking">
+                            <label class="custom-control-label" for="chkCreativity">Critical Thinking</label>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkStack" name="techSkill" value="Stack Based Programming">
+                            <label class="custom-control-label" for="chkStack">Stack Programming</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkPublic" name="businessSkill" value="Public Speaking/Presenting">
+                            <label class="custom-control-label" for="chkPublic">Public Speaking</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkInnovative" name="attitudeSkill" value="Innovative">
+                            <label class="custom-control-label" for="chkInnovative">Innovative</label>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkData" name="techSkill" value="Data-Oriented Programming">
+                            <label class="custom-control-label" for="chkData">Data-Oriented Programming</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkTime" name="businessSkill" value="Time Management">
+                            <label class="custom-control-label" for="chkTime">Time Management</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkLeadership" name="attitudeSkill" value="Leadership">
+                            <label class="custom-control-label" for="chkLeadership">Leadership</label>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkAssembly" name="techSkill" value="Assembly">
+                            <label class="custom-control-label" for="chkAssembly">Assembly</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkTeamwork"name="businessSkill" value="Teamwork">
+                            <label class="custom-control-label" for="chkTeamwork">Teamwork</label>
+                        </div>
+                    </th>
+                    <th scope="row">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkRespectful" name="attitudeSkill" value="Respectful">
+                            <label class="custom-control-label" for="chkRespectful">Respectful</label>
+                        </div>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
 
         <div id="skillsSummary", style="font-size:14px;"></div>
         <div class="position: absolute;">
