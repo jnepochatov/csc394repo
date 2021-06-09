@@ -142,7 +142,7 @@ def job(username, j_id):
     return render_template("job.html", username=username, jobName=jobName, jobRole=jobRole, jobDescription=jobDescription,
                            techSkills=techSkills, businessSkills=businessSkills, attSkills=attSkills)
 
-@app.route('/<username>/add_job', methods=['GET', 'POST'])
+@app.route('/add_job/<username>', methods=['GET', 'POST'])
 def add_job(username):
     n = jobs.count_documents({})
     company = companies.find({"username": username})
