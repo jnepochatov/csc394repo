@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
-<title>{{ jobName }}</title>
-  <div>
-    Role: {{ jobRole }}
-  </div>
-</body>
+  <head>
+    <title>{{ jobName }}</title>
+  </head>
+
+  <body>
+    <h2>{{ jobName }}</h2>
+      
+      <p>
+        <ul>
+          <li>Role: {{ jobRole }}<br></li>
+          <li>Description: {{ jobDescription }}</li>
+          <li>Tech Skills:</li>
+            <ul>
+              <li>{{  techSkills }}</li>
+          </ul>
+          <li>Business Skills:</li>
+            <ul>  
+              <li>{{ businessSkills }}</li>
+            </ul>
+          <li>Attitude Skills:</li>
+            <ul>
+              <li>{{ attSkills }}</li>
+              </ul>
+      </ul>
+    </p>
+  </body>
 </html>
