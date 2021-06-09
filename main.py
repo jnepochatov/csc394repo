@@ -4,6 +4,7 @@ from bson.objectid import ObjectId
 from login import cand_login, hash_text, comp_login
 from Persistence.candidate import CandidateObject
 from Persistence.company import CompanyObject
+from Persistence.job import JobObject
 
 
 app = Flask(__name__)
@@ -146,17 +147,21 @@ def job(username, j_id):
 def add_job(username):
     n = jobs.count_documents({})
     company = companies.find({"username": username})
+    j_list = list()
     for info in company:
         j_list = info["job_list"]
     if request.method == 'POST':
         j_id = n+1
-        job_name = request.form('job_name')
-        job_role = request.form('job_role')
-        job_description = request.form('job_description')
-        tech_skills = request.form('tech_skills')
-        business_skills = request.form('business_skills')
-        attitude_skills = request.form('attitude_skills')
+        j = request.form.to_dict('job_name')
+        job_name = j["job_name"]
+        job_role = j["job_role"]
+        job_description = j["job_description"]
+        tech_skills = j["tech_skills"]
+        business_skills = j["business_skills"]
+        attitude_skills = j["attitude_skills"]
         best_match = list()
+        
+        jb = JobObject(j_id, job_name, job_role, job_description, tech_skills, business_skills, attitude_skills, best_match).create()
 
         if job_name == "" or job_role == "" or job_description == "" or tech_skills == "" or business_skills == "" or attitude_skills == "":
             flash("Please enter information in every field")
@@ -164,14 +169,11 @@ def add_job(username):
 
         j_list.append(j_id)
         query = {"userName": username}
-        if query is not None:
-            update = {"$set": {"job_list": j_list}}
-            companies.update_one(query, update)
-            return redirect(url_for('job', username=username, j_id=j_id))
+        update = {"$set": {"job_list": j_list}}
+        companies.update_one(query, update)
+        return redirect(url_for('job', username=username, j_id=j_id))
     else:
-        return render_template('add_job.html')
-
-    return str(n)
+        return render_template('add_job.html', username=username)
 
 @app.route('/job_list')
 def job_list():
