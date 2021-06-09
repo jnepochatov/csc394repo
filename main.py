@@ -181,7 +181,7 @@ def job_list():
 
 @app.route('/logout')
 def logout():
-    return 'Logout'
+    return 'Logged out. Please close the browser'
 
 if __name__ == "__main__":
     app.secret_key = 'super secret key'
