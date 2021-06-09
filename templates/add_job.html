@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="position: absolute">
+        <h2 class="title">Add Job to company user: {{ username }}</h2>
+    </div>
+</div>
+
+<div class="container">
+    <div class="position: absolute;">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-danger">
+            {{ messages[0] }}
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+
+<div class="container">
+    <form method="POST" action="/add_job">
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="job_name" placeholder="Job Name">
+        </div>
+
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="job_role" placeholder="Job Role">
+        </div>
+
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="job_description" placeholder="Job Description">
+        </div>
+
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="tech_skills" placeholder="Tech Skills (separate with a comma)">
+        </div>
+
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="business_skills" placeholder="Business Skills (separate with a comma)">
+        </div>
+
+        <div class="position: absolute;">
+            <input class="form-control row-input" type="text" name="attitude_skills" placeholder="Attitude Skills (separate with a comma)">
+        </div>
+
+        <div class="position: absolute;">
+            <button class="btn btn-primary" type="submit">Add Job</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -32,21 +32,6 @@ def candidate_profile(username):
                            phoneNum=phoneNum, refences=references, tech_skills=tech_skills,
                            business_skills=business_skills, att_skills=att_skills)
 
-@app.route('/job/<job_id>')
-def job(job_id):
-    job = jobs.find({"_id": ObjectId(job_id)})
-    #jobName = job['jobName']
-
-    for info in job:
-        jobName = info['jobName']
-        jobRole = info['jobRole']
-        jobDescription = info['jobDescription']
-        techSkills= info['tech_skills']
-        businessSkills = info['business_skills']
-        attSkills = info['attitude']
-
-    return render_template("job.html", jobName=jobName, jobRole=jobRole, jobDescription=jobDescription,
-                           techSkills=techSkills, businessSkills=businessSkills, attSkills=attSkills)
 
 @app.route('/candidate_login', methods=['GET', 'POST'])
 def candidate_login():
@@ -137,9 +122,55 @@ def signup_post():
     # code to validate and add user to database goes here
     return redirect(url_for('login'))
 
+@app.route('/job/<username>/<j_id>')
+def job(username, j_id):
+    j = jobs.find({"j_id": j_id})
+    #jobName = job['jobName']
+
+    for info in j:
+        jobName = info['jobName']
+        jobRole = info['jobRole']
+        jobDescription = info['jobDescription']
+        techSkills= info['tech_skills']
+        businessSkills = info['business_skills']
+        attSkills = info['attitude']
+
+    return render_template("job.html", username=username, jobName=jobName, jobRole=jobRole, jobDescription=jobDescription,
+                           techSkills=techSkills, businessSkills=businessSkills, attSkills=attSkills)
+
+@app.route('/<username>/add_job', methods=['GET', 'POST'])
+def add_job(username):
+    n = jobs.count_documents({})
+    company = companies.find({"username": username})
+    for info in company:
+        j_list = info["job_list"]
+    if request.method == 'POST':
+        j_id = n+1
+        job_name = request.form('job_name')
+        job_role = request.form('job_role')
+        job_description = request.form('job_description')
+        tech_skills = request.form('tech_skills')
+        business_skills = request.form('business_skills')
+        attitude_skills = request.form('attitude_skills')
+        best_match = list()
+
+        if job_name == "" or job_role == "" or job_description == "" or tech_skills == "" or business_skills == "" or attitude_skills == "":
+            flash("Please enter information in every field")
+            return redirect((url_for('add_job', username=username)))
+
+        j_list.append(j_id)
+        query = {"userName": username}
+        if query is not None:
+            update = {"$set": {"job_list": j_list}}
+            companies.update_one(query, update)
+            return redirect(url_for('job', username=username, j_id=j_id))
+    else:
+        return render_template('add_job.html')
+
+    return str(n)
+
 @app.route('/job_list')
 def job_list():
-    #Placeholder until we add more jobs
     job_list = list(jobs.find())
     return render_template('job_list.html', job_list=job_list)
 
