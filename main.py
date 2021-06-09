@@ -130,7 +130,7 @@ def signup_post():
 @app.route('/job/<username>/<j_id>')
 def job(username, j_id):
     j = jobs.find({"j_id": j_id})
-    #jobName = job['jobName']
+    jobName = job['jobName']
 
     for info in j:
         jobName = info['jobName']
@@ -152,18 +152,18 @@ def add_job(username):
         j_list = info["job_list"]
     if request.method == 'POST':
         j_id = n+1
-        j = request.form.to_dict('job_name')
-        job_name = j["job_name"]
-        job_role = j["job_role"]
-        job_description = j["job_description"]
-        tech_skills = j["tech_skills"]
-        business_skills = j["business_skills"]
-        attitude_skills = j["attitude_skills"]
+        #j = request.form.to_dict('job_name')
+        job_name = request.form.get("job_name")
+        job_role = request.form.get("job_role")
+        job_description = request.form.get("job_description")
+        tech_skills = request.form.getlist("tech_skills")
+        business_skills = request.form.getlist("business_skills")
+        attitude_skills = request.form.getlist("attitude_skills")
         best_match = list()
         
         jb = JobObject(j_id, job_name, job_role, job_description, tech_skills, business_skills, attitude_skills, best_match).create()
 
-        if job_name == "" or job_role == "" or job_description == "" or tech_skills == "" or business_skills == "" or attitude_skills == "":
+        if job_name == "" or job_role == "" or job_description == "":
             flash("Please enter information in every field")
             return redirect((url_for('add_job', username=username)))
 
