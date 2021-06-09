@@ -129,8 +129,7 @@ def signup_post():
 
 @app.route('/job/<username>/<j_id>')
 def job(username, j_id):
-    j = jobs.find({"j_id": j_id})
-    jobName = job['jobName']
+    j = jobs.find({"_id": ObjectId(j_id)})
 
     for info in j:
         jobName = info['jobName']
@@ -171,7 +170,7 @@ def add_job(username):
         query = {"userName": username}
         update = {"$set": {"job_list": j_list}}
         companies.update_one(query, update)
-        return redirect(url_for('job', username=username, j_id=j_id))
+        return redirect(url_for('job', username=username, j_id=jb))
     else:
         return render_template('add_job.html', username=username)
 
