@@ -1,4 +1,4 @@
-import candidate_persistence as cd, job_persistence as jb
+import Persistence.candidate_persistence as cd, Persistence.job_persistence as jb
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
@@ -63,4 +63,4 @@ def find_matches(candidate_id):
         matches = list(matches)       
         candidate.db.update_one({"_id" : ObjectId(candidate_id)}, { "$set" : {"bestMatch" : matches}})
 
-find_matches("60ac7f921ab56f248fd12fe0")
+#find_matches("60ac7f921ab56f248fd12fe0")
