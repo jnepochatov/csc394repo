@@ -25,5 +25,5 @@ class JobObject:
             'bestMatch': self.bestMatch,
         }
         job_id = self.db.insert_one(job_data).inserted_id
-        #find_matches(job_id)
+        find_matches(job_id)
         return job_id
