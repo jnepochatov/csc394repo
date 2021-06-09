@@ -34,12 +34,11 @@
         <div class="position: absolute">
             <button class="btn btn-primary" type="submit">Login</button>
         </div>
+        <br>
+        <p style="font-size:14px">
+            Don't have an account? Sign up
+            <a href="{{ url_for('candidate_signup') }}", style="text-decoration:underline">here.</a>
+        </p>
     </form>
 </div>
-
-<br>
-<p style="font-size:14px">
-    Don't have an account? Sign up 
-    <a href="{{ url_for('candidate_signup') }}", style="text-decoration:underline">here.</a>
-</p>
 {% endblock %}

@@ -44,6 +44,11 @@
         <div class="position: absolute;">
             <button class="btn btn-primary" type="submit">Sign Up</button>
         </div>
+        <br>
+        <p style="font-size:14px">
+            Already have an account? Sign In
+            <a href="{{ url_for('company_login') }}", style="text-decoration:underline">here.</a>
+        </p>
     </form>
 </div>
 {% endblock %}
