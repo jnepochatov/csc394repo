@@ -1,12 +1,22 @@
+<link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../static/css/templatemo_style.css" rel="stylesheet" type="text/css">
+
 <!DOCTYPE html>
 <html lang="en">
+<title>Job List</title>
 <style>
   table, th, td {
+  position: relative;
+  left:10px;
+  max-width:1500px;
     border: 1px solid black;
   }
 
   table {
-    width: 100%;
+     position:relative;
+      left:20px;
+     width:1500px;
     border-collapse: collapse;
     border: 2px solid black;
     font-family: Arial, Helvetica, sans-serif;
@@ -24,28 +34,17 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #04AA6D;
+    width:300px;
+    background-color: black;
     color: white;
   }
-
-
-
 </style>
 
 <body>
 <p id="demo"></p>
-<!--<script>
-  var arr=["ID","Job ID","Job Name","Job Role","Job Description","Tech Skills","Business Skills","Attide","Best Match"];
 
-  var text = "";
-  var i;
-  for(i=0;i<arr.length;i++){
-    text += arr[i] + "<br>";
-  }
-  document.getElementById("demo").innerHTML = text;
-</script>
--->
-<h1> Available Jobs </h1>
+    <h1 style="position:relative;  left:20px;"> Available Jobs </h1>
+
   {% for dictionary in job_list %}
   <table border=1, id="jobs">
     {% for key in dictionary %}
@@ -53,7 +52,6 @@
       <tr>
         <th>
           {{ key }}
-
         </th>
         <td>
           {{ dictionary[key] }}
@@ -62,8 +60,10 @@
     {% endfor %}
 
     <form method ="GET" action = "">
-        <button class="btn btn-primary" type="submit">Apply Now</button>
+        <button class="btn btn-primary" type="submit" style="position:relative; left:15px;">Apply Now</button>
+            <br>
     </form>
+
     <br>
   </table>
 <hr>
