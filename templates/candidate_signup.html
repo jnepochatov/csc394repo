@@ -45,7 +45,7 @@
             <input class="form-control row-input" type="text" name="references" placeholder="References (separate with a comma)">
         </div>
 
-        <div class="position: absolute;">
+        <!--<div class="position: absolute;">
             <input class="form-control row-input" type="text" name="tech_skills" placeholder="Tech Skills (separate with a comma)">
         </div>
 
@@ -55,11 +55,107 @@
 
         <div class="position: absolute;">
             <input class="form-control row-input" type="text" name="attitude_skills" placeholder="Attitude Skills (separate with a comma)">
+        </div>-->
+
+        <div style="font-size:14px; position:relative;">
+            <br>
+            <p>Select the skills that apply to you:<br>
+            Object Oriented Programming
+            <input type="checkbox" id="chkObject" name="techSkill" value="Object Oriented Programming">
+            <br>
+            Functional Programming
+            <input type="checkbox" id="chkFunctional" name="techSkill" value="Functional Programming">
+            <br>
+            Dynamic Programming
+            <input type="checkbox" id="chkDynamic" name="techSkill" value="Dynamic Programming">
+            <br>
+            Scripting
+            <input type="checkbox" id="chkScript" name="techSkill" value="Scripting">
+            <br>
+            App Development
+            <input type="checkbox" id="chkApp" name="techSkill" value="App Development">
+            <br>
+            Static Programming
+            <input type="checkbox" id="chkStatic" name="techSkill" value="Static Programming">
+            <br>
+            Database Programming
+            <input type="checkbox" id="chkDatabase" name="techSkill" value="Database Programming">
+            <br>
+            Stack Based Programming
+            <input type="checkbox" id="chkStack" name="techSkill" value="Stack Based Programming">
+            <br>
+            Data-Oriented Programming
+            <input type="checkbox" id="chkData" name="techSkill" value="Data-Oriented Programming">
+            <br>
+            Assembly
+            <input type="checkbox" id="chkAssembly" name="techSkill" value="Assembly">
+            <br>
+            Organization
+            <input type="checkbox" id="chkOrganization" name="businessSkill" value="Organization">
+            <br>
+            Management
+            <input type="checkbox" id="chkManagement"name="businessSkill" value="Management">
+            <br>
+            Support/Customer Service
+            <input type="checkbox" id="chkSupport"name="businessSkill" value="Support/Customer Service">
+            <br>
+            Analysis
+            <input type="checkbox" id="chkAnalysis"name="businessSkill" value="Analysis">
+            <br>
+            Problem Solving
+            <input type="checkbox" id="chkProblem"name="businessSkill" value="Problem Solving">
+            <br>
+            Finance/Accoutning
+            <input type="checkbox" id="chkFinance"name="businessSkill" value="Finance/Accounting">
+            <br>
+            Writing
+            <input type="checkbox" id="chkWriting"name="businessSkill" value="Writing">
+            <br>
+            Public Speaking/Presenting
+            <input type="checkbox" id="chkPublic"name="businessSkill" value="Public Speaking/Presenting">
+            <br>
+            Time Management
+            <input type="checkbox" id="chkTime"name="businessSkill" value="Time Management">
+            <br>
+            Accountability
+            <input type="checkbox" id="chkAccountability"name="businessSkill" value="Accountability">
+            <br>
+            Adaptability
+            <input type="checkbox" id="chkAdaptability" name="attitudeSkill" value="Adaptability">
+            <br>
+            Honesty
+            <input type="checkbox" id="chkHonesty" name="attitudeSkill" value="Honesty">
+            <br>
+            Positive/Optimistic
+            <input type="checkbox" id="chkPositive" name="attitudeSkill" value="Positive/Optimistic">
+            <br>
+            Logical
+            <input type="checkbox" id="chkLogical" name="attitudeSkill" value="Logical">
+            <br>
+            Creativity
+            <input type="checkbox" id="chkCreativity" name="attitudeSkill" value="Creativity">
+            <br>
+            Critical Thinking
+            <input type="checkbox" id="chkCritical" name="attitudeSkill" value="Critical Thinking">
+            <br>
+            Innovative
+            <input type="checkbox" id="chkInnovative" name="attitudeSkill" value="Innovative">
+            <br>
+            Leadership
+            <input type="checkbox" id="chkLeadership" name="attitudeSkill" value="Leadership">
+            <br>
+            Respectful
+            <input type="checkbox" id="chkRespectful" name="attitudeSkill" value="Respectful">
+            <br>
+        </p>
         </div>
 
+        <div id="skillsSummary", style="font-size:14px;"></div>
         <div class="position: absolute;">
             <button class="btn btn-primary" type="submit">Sign Up</button>
         </div>
+
+
     </form>
 </div>
 {% endblock %}

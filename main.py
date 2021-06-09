@@ -72,9 +72,13 @@ def candidate_signup():
         name = request.form.get('name')
         phoneNum = request.form.get('phoneNum')
         references = request.form.get('references').strip().replace(' ', '').split(',')
-        tech_skills = request.form.get('tech_skills').strip().replace(' ', '').split(',')
-        business_skills = request.form.get('business_skills').strip().replace(' ', '').split(',')
-        attitude_skills = request.form.get('attitude_skills').strip().replace(' ', '').split(',')
+        #for the checkboxes
+        tech_skills = request.form.getlist('techSkill')
+        business_skills = request.form.getlist('businessSkill')
+        attitude_skills = request.form.getlist('attitudeSkill')
+        #tech_skills = request.form.get('tech_skills').strip().replace(' ', '').split(',')
+        #business_skills = request.form.get('business_skills').strip().replace(' ', '').split(',')
+        #attitude_skills = request.form.get('attitude_skills').strip().replace(' ', '').split(',')
         if username == "" or password == "" or email == "":
             flash("Incorrect signup details.")
             return redirect(url_for('candidate_signup'))
