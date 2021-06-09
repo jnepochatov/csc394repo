@@ -1,10 +1,185 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<!--
 <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="../static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="../static/css/templatemo_style.css" rel="stylesheet" type="text/css">
+
+-->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>{{ name }}</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            margin-top: 20px;
+            color: #1a202c;
+            text-align: left;
+            background-color: #e2e8f0;
+            padding: 10px;
+            /*border: 2px solid black;*/
+        }
+
+        .main-body {
+            padding: 15px;
+            min-width: 900px;
+            min-height: auto;
+            text-align: left;
+            /*border: 2px solid blue;*/
+        }
+
+        .card {
+            font-size: 20px;
+            position: relative;
+            min-height: 400px;
+            text-indent: 15px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+            /*border: 2px solid yellow;*/
+        }
+
+        .card {
+            position: relative;
+            right: 10px;
+            display: flex;
+            /*flex-direction: column;
+            word-wrap: break-word;*/
+            background-color: #fff;
+            background-clip: border-box;
+            border: 0 solid rgba(0, 0, 0, .125);
+            border-radius: .25rem;
+            /*border: 2px solid red;*/
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            min-height: auto;
+            min-width: auto;
+            text-align: left;
+            padding: 1rem;
+            /*border: 2px solid green;*/
+        }
+
+        .gutters-sm {
+            margin-right: -8px;
+            margin-left: -8px;
+            /*border: 2px solid purple;*/
+        }
+
+        .gutters-sm > .col, .gutters-sm > [class*=col-] {
+            padding-right: 8px;
+            padding-left: 8px;
+            /*border: 2px solid aqua;*/
+        }
+
+        .mb-3, .my-3 {
+            margin-bottom: 2rem !important;
+            position: relative;
+            right: 5px;
+            /*border: 2px solid orange;*/
+        }
+
+        .bg-gray-300 {
+            background-color: #e2e8f0;
+            /*border: 2px solid brown;*/
+        }
+
+        .h-100 {
+            height: 100% !important;
+            text-align: left;
+            /*border: 2px solid grey;*/
+        }
+
+        .shadow-none {
+            box-shadow: none !important;
+            /*border: 2px solid greenyellow;*/
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="main-body">
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img alt="Admin" class="rounded-circle"
+                                 src="https://bootdey.com/img/Content/avatar/avatar7.png" width="150">
+                            <div class="mt-3">
+                                <h4></h4>
+                                <p class="text-secondary mb-1">{{ companyname }} Company Page</p>
+                                <p class="text-muted font-size-sm">Chicago, IL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Company</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{companyname}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{email}}
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Mobile</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{phoneNum}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Address</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            Chicago, IL
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="container">
+                        <div class="position: absolute;">
+                            <a href="{{url_for('add_job', username=userName)}}">
+                                <button class="btn btn-primary">Add Job</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--
 
 <div class="container">
     <div class="position: absolute">
@@ -27,4 +202,17 @@
             </a>
         </div>
 </div>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+</script>
+-->
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
 {% endblock %}
