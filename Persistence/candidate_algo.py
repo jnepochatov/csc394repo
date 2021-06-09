@@ -57,10 +57,10 @@ def find_matches(candidate_id):
                 if total_score > min_score:
                     del matches[-1]
                     matches.append((job_id, total_score))
-            matches = matches.sort(key = lambda x: x[1]) 
+            matches.sort(key = lambda x: x[1], reverse=True)
     #Update the best matches list in the database
     if matches != None: 
         matches = list(matches)       
         candidate.db.update_one({"_id" : ObjectId(candidate_id)}, { "$set" : {"bestMatch" : matches}})
 
-#find_matches("60ac7f921ab56f248fd12fe0")
+find_matches("60ac7f921ab56f248fd12fe0")
