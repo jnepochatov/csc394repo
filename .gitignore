@@ -18,3 +18,15 @@ lib64/
 
 # Installer logs
 pip-log.txt
+
+bson
+click
+colorama
+dns
+dnspython-2.1.0.dist-info
+flask
+itsdangerous
+jinja2
+markupsafe
+pymongo
+werkzeug
