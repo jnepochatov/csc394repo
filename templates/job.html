@@ -8,30 +8,37 @@
 
 <div class="container">
     <div class="position: absolute">
-        <h2 class="title">Job Name: {{ jobName }} </h2>
+        <h1 style="font-style:italic; font-weight:bold;">{{ jobName }}</h1>
     </div>
 </div>
 
 <div class="container">
-    <h2>Job Info</h2>
-    <h3>Job Description: {{ jobDescription }}</h3>
-    <h4>Tech Skills Required: </h4>
+    <h3 class="title">Job Role:</h3>
+    <p style="font-size:16px">{{ jobRole }}</p>
+
+    <h3 class="title">Job Description:</h3>
+    <p style="font-size:16px">{{ jobDescription }}</p>
+
+
+    <h3 class="title">Tech Skills Required: </h3>
     {% for item in techSkills %}
-        <ul style="font-size:18px">
+        <ul style="font-size:16px">
             <li>{{ item }}</li>
         </ul>
     {% endfor %}
-    <h4>Business Skills Required: </h4>
+
+    <h3 class="title">Business Skills Required: </h3>
     {% for item in businessSkills %}
-        <ul style="font-size:18px">
+        <ul style="font-size:16px">
             <li>{{ item }}</li>
         </ul>
     {% endfor %}
-    <h4>Attitude Skills Required: </h4>
+
+    <h3 class="title">Attitude Skills Required: </h3>
     {% for item in attSkills %}
-        <ul style="font-size:18px">
-            <li>{{ item }}</li>
-        </ul>
-    {% endfor %}
+    <ul style="font-size:16px">
+        <li>{{ item }}</li>
+    </ul>
+{% endfor %}
 </div>
 {% endblock %}
